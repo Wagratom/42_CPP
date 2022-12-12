@@ -6,26 +6,29 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:29:38 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/10 18:14:56 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:54:01 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phoneBook.hpp"
 
-void	PhoneBook::search(void)
+void	PhoneBook::EXIT(void)
 {
-	std::cout << "IMPUT NAME" << std::endl;
+	//exit(0);
 }
 
-// void	PhoneBook::exit(void)
-// {
-// 	exit(0);
-// }
+PhoneBook::PhoneBook(void)
+{
+	number_ctd = 0;
+}
+
+PhoneBook::~PhoneBook()
+{
+}
 
 int	main()
 {
 	PhoneBook	book;
-
 	std::string buff;
 
 	std::cout << "input one command \"ADD\" \"SEARCH\" or \"EXIT\" !" << std::endl;
@@ -33,14 +36,13 @@ int	main()
 	{
 		std::cin >> buff;
 		if (buff == "ADD")
-			book.add_contacts();
-		else if (buff == "search")
-			std::cout << "escrevir search" << std::endl;
+			book.AddContacts();
+		else if (buff == "SEARCH")
+			book.Search();
 		else if (buff == "EXIT")
 			break ;
 		else
 			std::cout << "command invalid input one of the three commands \"ADD\" \"SEARCH\" or \"EXIT\" !" << std::endl;
-
 	}
 	return (0);
 }

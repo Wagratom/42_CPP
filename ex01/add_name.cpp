@@ -6,74 +6,121 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:29:38 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/10 18:16:42 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:57:36 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phoneBook.hpp"
 
-void	get_firt_name(Contact new_cttd)
+void	increment_numbers(int	*index, int *number_ctt);
+int		is_valid_number(std::string number);
+int		valid_chars(std::string number);
+int		valid_size(std::string number);
+
+void	get_first_name(Contact book[8], int index)
+{
+	std::string input;
+
+	std::cout << "First name: ";
+	std::cin >> input;
+	book[index].set_first_name(input);
+}
+
+void	get_last_name(Contact book[8], int index)
 {
 	std::string input;
 
 	std::cout << "Last name: ";
 	std::cin >> input;
-	new_cttd.firt_name = input;
+	book[index].set_last_name(input);
 }
 
-void	get_last_name(Contact new_cttd)
-{
-	std::string input;
-
-	std::cout << "Last name: ";
-	std::cin >> input;
-	new_cttd.last_name = input;
-}
-
-void	get_nickname(Contact new_cttd)
+void	get_nickname(Contact book[8], int index)
 {
 	std::string input;
 
 	std::cout << "Nickname: ";
 	std::cin >> input;
-	new_cttd.nickname = input;
+	book[index].set_nickname(input);
 }
 
-int	get_number(Contact new_cttd)
-{
-	std::string input;
-
-	std::cout << "Phone number: ";
-	std::cin >> input;
-	for (int letter = 0; input[letter]; letter++)
-	{
-		if (input[letter] < '0' || input[letter] > '9')
-		{
-			std::cout << "please write a valid number" << std::endl;
-			return (0);
-		}
-	}
-	new_cttd.phone_namer = input;
-	return (1);
-}
-
-void	darkest_secret(Contact new_cttd)
+void	darkest_secret(Contact book[8], int index)
 {
 	std::string input;
 
 	std::cout << "Darkest secret: ";
 	std::cin >> input;
-	new_cttd.darkest_secret = input;
+	book[index].set_darkest_secret(input);
 }
 
-void	PhoneBook::add_contacts(void)
+int	get_number(Contact book[8], int index)
 {
-	get_firt_name(book[0]);
-	get_last_name(book[0]);
-	get_nickname(book[0]);
-	get_number(book[0]);
-	darkest_secret(book[0]);
+	std::string input;
+
+	std::cout << "Phone number: ";
+	std::cin >> input;
+	if (!is_valid_number(input))
+		return (0);
+	book[index].set_phone_name(input);
+	return (1);
+}
+
+int	is_valid_number(std::string number)
+{
+	if (!valid_chars(number))
+		return (0);
+	//if (!valid_size(number))
+	//	return (0);
+	return (1);
+}
+
+int	valid_chars(std::string number)
+{
+	int letter;
+
+	letter = -1;
+	while (number[++letter])
+	{
+		if (number[letter] >= '0' && number[letter] <= '9')
+			continue ;
+		std::cout << "\nPlease write a valid number" << std::endl;
+		return (0);
+	}
+	return (1);
+}
+
+int	valid_size(std::string number)
+{
+	int size;
+
+	size = -1;
+	while (number[++size]);
+	if (size == 8)
+		return (1);
+	std::cout << "\nInvalid size number. Example 92604085" << std::endl;
+	return (0);
+}
+
+void	PhoneBook::AddContacts(void)
+{
+	static int index = 0;
+
+	std::cout << number_ctd << std::endl;
+	get_first_name(book, index);
+	get_last_name(book, index);
+	get_nickname(book, index);
+	while (!get_number(book, index));
+	darkest_secret(book, index);
+	increment_numbers(&index, &number_ctd);
 	std::cout << "contact added" << std::endl;
 	std::cout << "input one command \"ADD\" \"SEARCH\" or \"EXIT\" !" << std::endl;
 }
 
+void	increment_numbers(int	*index, int *number_ctd)
+{
+	*index += 1;
+	if (*index >= 8)
+		*index = 0;
+	if (*number_ctd + 1 < 8)
+		*number_ctd += 1;
+}

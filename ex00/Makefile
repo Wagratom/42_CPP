@@ -6,19 +6,40 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2022/12/08 13:52:57 by wwallas-         ###   ########.fr        #
+#    Updated: 2022/12/12 15:29:44 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+INCLUDE		=	-I./
+NAME		=	megaphone
 
-NAME	=	megaphone
+CC			=	c++
+CFLAGS		=	-Wall -Wextra -Werror  -std=c++98
 
-CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror  -std=c++98
+SOURCES		=	megaphone.cpp
 
-SOURCES	=	megaphone.cpp
+OBJS_DIR	=	objs
+OBJS		=	$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SOURCES))
 
-all:
+RM			=	rm -rf
 
-$(NAME):
-	gcc megaphone.cpp
+$(OBJS_DIR)/%.o: %.cpp
+			$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+all:	$(NAME);
+
+$(NAME):	$(OBJS_DIR) $(OBJS)
+		$(CC) $(OBJS) $(CFLAGS) -o $@
+
+$(OBJS_DIR):
+	mkdir -p objs
+
+clean:
+	$(RM) $(OBJS_DIR)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: clean fclean re

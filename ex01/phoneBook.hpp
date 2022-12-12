@@ -6,35 +6,26 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 09:37:34 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/10 18:04:21 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:52:51 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-
-class Contact
-{
-	public:
-
-	private:
-		std::string firt_name;
-		std::string last_name;
-		std::string nickname;
-		std::string phone_namer;
-		std::string darkest_secret;
-
-};
+#include "Contact.hpp"
 
 class PhoneBook
 {
 	public:
-		void	add_contacts(void);
-		void	search(void);
-		void	exit(void);
+		PhoneBook(void);
+		~PhoneBook(void);
+		void	AddContacts(void);
+		void	Search(void);
+		void	EXIT(void);
 
 	private:
 		Contact book[8];
+		int		number_ctd;
 };
 
 
