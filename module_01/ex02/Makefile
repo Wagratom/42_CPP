@@ -6,7 +6,7 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2022/12/14 17:31:53 by wwallas-         ###   ########.fr        #
+#    Updated: 2022/12/14 17:23:08 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME		=	zombieHorde
 CC			=	c++ -std=c++98
 CFLAGS		=	-Wall -Wextra -Werror
 
-SOURCES		=	main.cpp Zombie.cpp zombieHorde.cpp
+SOURCES		=	Zombie.cpp
 
 OBJS_DIR	=	objs
 OBJS		=	$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SOURCES))

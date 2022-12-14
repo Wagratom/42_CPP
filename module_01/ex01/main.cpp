@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:36:34 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/14 17:32:34 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:30:57 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#include <Zombie.hpp>
 
-#include <iostream>
-#include <string.h>
+Zombie*		zombieHorde( int N, std::string name );
 
-class Zombie
+int main( void )
 {
-	public:
-		Zombie( void );
-		~Zombie( void );
+	Zombie *horde = zombieHorde(10, "programmer");
+	delete[] horde;
+}
 
-		Zombie*		zombieHorde( int N, std::string name );
-		void		announce( void );
-
-		std::string	get_name( void );
-		void		set_name( std::string name );
-
-	private:
-		std::string name;
-
-};
-
-#endif

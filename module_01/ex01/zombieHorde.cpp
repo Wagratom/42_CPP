@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:36:34 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/14 17:32:34 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:36:36 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#include <Zombie.hpp>
 
-#include <iostream>
-#include <string.h>
-
-class Zombie
+void	set_name_orde( int N, std::string name, Zombie *hord )
 {
-	public:
-		Zombie( void );
-		~Zombie( void );
+	for (int aux = 0; aux < N; aux++)
+	{
+		hord[aux].set_name( name );
+		hord[aux].announce();
+	}
 
-		Zombie*		zombieHorde( int N, std::string name );
-		void		announce( void );
 
-		std::string	get_name( void );
-		void		set_name( std::string name );
+}
+Zombie*		zombieHorde( int N, std::string name )
+{
+	Zombie *hord = new Zombie[N];
+	set_name_orde(N, name, hord);
+	return (hord);
+}
 
-	private:
-		std::string name;
-
-};
-
-#endif
