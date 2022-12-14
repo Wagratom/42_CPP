@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:36:34 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/14 15:13:01 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:45:36 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 class Zombie
 {
 	public:
+		Zombie( std::string name );
+		~Zombie( void );
+
 		Zombie*		newZombie( std::string name );
 		void		announce( void );
 		void		 randomChump( std::string name );
