@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:36:34 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/14 17:24:19 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:11:14 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ Zombie*		newZombie( std::string name )
 
 void randomChump( std::string name )
 {
-	Zombie	new_zombie(name);
+	Zombie	new_zombie( name );
 	new_zombie.announce();
 }
