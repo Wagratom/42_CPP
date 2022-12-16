@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:29:38 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/12 14:57:36 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:53:18 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int	is_valid_number(std::string number)
 {
 	if (!valid_chars(number))
 		return (0);
-	//if (!valid_size(number))
-	//	return (0);
+	if (!valid_size(number))
+		return (0);
 	return (1);
 }
 
@@ -105,14 +105,13 @@ void	PhoneBook::AddContacts(void)
 {
 	static int index = 0;
 
-	std::cout << number_ctd << std::endl;
 	get_first_name(book, index);
 	get_last_name(book, index);
 	get_nickname(book, index);
 	while (!get_number(book, index));
 	darkest_secret(book, index);
 	increment_numbers(&index, &number_ctd);
-	std::cout << "contact added" << std::endl;
+	std::cout << "contact added\n" << std::endl;
 	std::cout << "input one command \"ADD\" \"SEARCH\" or \"EXIT\" !" << std::endl;
 }
 
