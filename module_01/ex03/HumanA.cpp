@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:53:01 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/15 20:36:24 by wwallas-         ###   ########.fr       */
+/*   Created: 2022/12/15 19:20:23 by wwallas-          #+#    #+#             */
+/*   Updated: 2022/12/15 21:21:59 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Weapon.hpp>
+#include <HumanA.hpp>
 
-Weapon::Weapon( std::string type ) : _type(type)
+HumanA::HumanA(std::string name, Weapon weapon) : _name(name), _weapon(weapon)
 {
-	std::cout << "called Weapon " << type << std::endl;
+	std::cout << "called HumanA " << name  << " how Weapon " << _weapon.getType() << std::endl;
 }
 
-Weapon::~Weapon( void )
+HumanA::~HumanA()
 {
-	std::cout << "destroyed Weapon " << _type << std::endl;
+	std::cout << "destroyed HumanA " << _name << std::endl;
 }
 
-const std::string& Weapon::getType( void )
+void	HumanA::attack( void )
 {
-	return _type;
-}
-
-void Weapon::setType( std::string type)
-{
-	this->_type = type;
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

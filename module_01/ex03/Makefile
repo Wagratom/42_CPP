@@ -6,17 +6,17 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2022/12/15 15:52:59 by wwallas-         ###   ########.fr        #
+#    Updated: 2022/12/15 20:22:40 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 INCLUDE		=	-I./
-NAME		=	zombieHorde
+NAME		=	soldiers
 
 CC			=	c++ -std=c++98
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	#-Wall -Wextra -Werror
 
-SOURCES		=	main.cpp Weapon.cpp
+SOURCES		=	main.cpp Weapon.cpp HumanA.cpp
 
 OBJS_DIR	=	objs
 OBJS		=	$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SOURCES))

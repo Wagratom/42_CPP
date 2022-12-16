@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:53:01 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/15 20:36:24 by wwallas-         ###   ########.fr       */
+/*   Created: 2022/12/15 19:20:40 by wwallas-          #+#    #+#             */
+/*   Updated: 2022/12/15 21:22:11 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Weapon.hpp>
 
-Weapon::Weapon( std::string type ) : _type(type)
+class HumanA
 {
-	std::cout << "called Weapon " << type << std::endl;
-}
+	public:
+		HumanA( std::string name, Weapon weapon );
+		~HumanA( void );
 
-Weapon::~Weapon( void )
-{
-	std::cout << "destroyed Weapon " << _type << std::endl;
-}
+		void	attack( void );
+	private:
+		std::string	_name;
+		Weapon		_weapon;
+};
 
-const std::string& Weapon::getType( void )
-{
-	return _type;
-}
-
-void Weapon::setType( std::string type)
-{
-	this->_type = type;
-}

@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:53:01 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/15 16:00:41 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/15 20:31:28 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon
 		void				setType( std::string type);
 
 	private:
-		std::string type;
+		std::string _type;
 
 };
 
