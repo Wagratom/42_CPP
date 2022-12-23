@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:45:31 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/22 23:49:04 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:14:52 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	Harl::debug( void )
 {
-	std::cout << "DEBUG: ";
+	std::cout << "[ DEBUG ]\n";
 	std::cout << DEBUG;
 	std::cout << std::endl;
 }
 
 void	Harl::info( void )
 {
-	std::cout << "INFO: ";
+	std::cout << "[ INFO ]\n";
 	std::cout << INFO;
 	std::cout << std::endl;
 }
 
 void	Harl::warning( void )
 {
-	std::cout << "WARNING: ";
+	std::cout << "[ WARNING ]\n";
 	std::cout << WARNING;
 	std::cout << std::endl;
 }
 
 void	Harl::error( void )
 {
-	std::cout << "ERROR: ";
+	std::cout << "[ ERROR ]\n";
 	std::cout << ERROR;
 	std::cout << std::endl;
 }

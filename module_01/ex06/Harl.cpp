@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:45:31 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/23 11:07:01 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:27:47 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,16 @@ void	Harl::complain( std::string level)
 	{
 		case (0):
 			debug();
+			// fall through
 		case (1):
 			info();
+			// fall through
 		case (2):
 			warning();
+			// fall through
 		case (3):
 			error();
+			break;
 		default:
 			std::cout << "Error: Past level does not exist" << std::endl;
 	}
