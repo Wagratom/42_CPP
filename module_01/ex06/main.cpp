@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 19:20:40 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/22 16:02:47 by wwallas-         ###   ########.fr       */
+/*   Created: 2022/12/19 11:18:55 by wwallas-          #+#    #+#             */
+/*   Updated: 2022/12/22 23:25:59 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
-# define HUMANA_H
+#include <Harl.hpp>
 
-# include <Weapon.hpp>
-
-class HumanA
+int main(int argc, char *argv[])
 {
-	public:
-		HumanA( std::string name, Weapon& weapon );
-		~HumanA( void );
+	Harl	menssage;
 
-		void	attack( void );
-
-	private:
-		std::string	_name;
-		Weapon&		_weapon;
-};
-
-#endif
+	if (argc == 1)
+		std::cout << "Error: no level passed" << std::endl;
+	else if (argc == 2)
+		menssage.complain(argv[1]);
+	else
+		std::cout << "Error: many level passed" << std::endl;
+}

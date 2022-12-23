@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 10:45:31 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/22 21:51:40 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/22 23:48:47 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Harl
 		void	info( void );
 		void	warning( void );
 		void	error( void );
-		functions function;
+		functions _function;
 };
 
 #endif
