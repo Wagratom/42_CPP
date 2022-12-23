@@ -6,7 +6,7 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2022/12/15 21:34:08 by wwallas-         ###   ########.fr        #
+#    Updated: 2022/12/23 11:37:06 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ INCLUDE		=	-I./
 NAME		=	soldiers
 
 CC			=	c++ -std=c++98
-CFLAGS		=	#-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 SOURCES		=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
