@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/26 13:20:58 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/27 10:36:49 by wwallas-         ###   ########.fr       */
+/*   Created: 2022/12/26 11:09:22 by wwallas-          #+#    #+#             */
+/*   Updated: 2022/12/27 10:37:51 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Fixed.hpp>
+#ifndef	FIXED_H
+#define FIXED_H
 
-int main( void )
+#include <iostream>
+
+class	Fixed
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+	public:
+		Fixed( void );
+		~Fixed( void );
+		Fixed( const Fixed& outro);
+		Fixed	&operator=(Fixed const &src);
 
+		int		getRawBits( void ) const ;
+		void	setRawBits( int const raw );
+
+	private:
+		int					_fixed;
+		int const static	_fractionalbits;
+};
+
+#endif

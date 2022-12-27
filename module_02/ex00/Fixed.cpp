@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   OrthodoxCanonical.cpp                              :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:09:22 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/12/26 13:57:13 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:37:47 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <OrthodoxCanonical.hpp>
+#include <Fixed.hpp>
 
-int const Fixed:: _bits = 8;
+int const Fixed:: _fractionalbits = 8;
 
 Fixed::Fixed( void ) : _fixed(0)
 {
