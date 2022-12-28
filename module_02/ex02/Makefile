@@ -6,7 +6,7 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2022/12/27 10:28:16 by wwallas-         ###   ########.fr        #
+#    Updated: 2022/12/27 12:56:38 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		=	Fixed
 
 
 CC			=	c++ -std=c++98
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	#-Wall -Wextra -Werror
 
 SOURCES		=	main.cpp Fixed.cpp
 
