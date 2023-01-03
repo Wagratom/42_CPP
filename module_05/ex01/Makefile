@@ -6,18 +6,18 @@
 #    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2023/01/02 15:31:13 by wwallas-         ###   ########.fr        #
+#    Updated: 2023/01/03 11:59:37 by wwallas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 INCLUDE		=	-I./
-NAME		=	bureaucrat
+NAME		=	form
 
 
 CC			=	c++ -std=c++98
 CFLAGS		=	#-Wall -Wextra -Werror
 
-SOURCES		=	main.cpp Form.cpp Bureaucrat.cpp
+SOURCES		=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJS_DIR	=	objs
 OBJS		=	$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SOURCES))

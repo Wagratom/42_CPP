@@ -6,29 +6,28 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/02 20:36:47 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:52:17 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <Bureaucrat.hpp>
-# include <stdexcept>
 
 /******************************************************************************/
-std::string	Bureaucrat::GradeTooHighException(std::string msg) {
-	return (std::string ("Execção 1 ") + msg);
+std::string	Bureaucrat::GradeTooHighException::highException(std::string msg){
+	return ( std::string("Exception 1: ") + msg);
 }
 
-std::string	Bureaucrat::GradeTooLowException(std::string msg) {
-	throw std::invalid_argument(std::string ("Execção 2 ") + msg);
+std::string	Bureaucrat::GradeTooLowException::lowException( std::string msg ) {
+	return ( std::string("Exception 2: ") + msg);
 }
 
 int	Bureaucrat::get_valid_grade( int *grade, std::string msg )
 {
 	try {
 		if (*grade < 1 )
-			throw std::invalid_argument(GradeTooHighException(msg));
+			throw std::invalid_argument(Bureaucrat::GradeTooHighException().highException(msg));
 		else if (*grade > 150)
-			throw std::invalid_argument(GradeTooHighException(msg));
+			throw std::invalid_argument(Bureaucrat::GradeTooLowException().lowException(msg));
 		return (*grade);
 	}
 	catch (std::exception& e) {
@@ -55,18 +54,18 @@ Bureaucrat::~Bureaucrat(){
 }
 /******************************************************************************/
 
-std::string	Bureaucrat::getName( void ) {
+std::string	Bureaucrat::getName( void ) const {
 	return (this->_name);
 }
 
-int	Bureaucrat::getGrade( void ) {
+int	Bureaucrat::getGrade( void ) const {
 	return (this->_grade);
 }
 /******************************************************************************/
 
 int	Bureaucrat::verify_up_or_down(int *grade)
 {
-	if (!get_valid_grade( grade, "You are trying to go to a grid that does not supported. Action canceled, press any key to continue"))
+	if (!get_valid_grade( grade, "You are trying to go to a grid that does not supported. Action canceled, send anything to continue"))
 		return (0);
 	std::cout << "successfully Upgrade" << std::endl;
 	return (1);
@@ -89,15 +88,24 @@ void	Bureaucrat::downgrade( void ){
 	std::cout << "successfully downgrade" << std::endl;
 }
 /******************************************************************************/
-
-Bureaucrat&	Bureaucrat::operator=(Bureaucrat src) {
+Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& src) {
+	(std::string)this->_name =	src.getName();
 	this->_grade = src.getGrade();
-	(std::string)this->_name = src.getName();
-
 	return (*this);
 }
 
 std::ostream&	operator<<(std::ostream& out, Bureaucrat src) {
 	out << src.getName() << ", bureaucrat grade " << src.getGrade();
 	return (out);
+}
+
+/******************************************************************************/
+void	Bureaucrat::signForm( Form &form){
+	if (form.getSigned() == true)
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	else
+	{
+		std::cout << this->_name << " couldn’t sign " << form.getName();
+		std::cout << " because" << " very low grade" << std::endl;
+	}
 }
