@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/03 12:37:20 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:29:15 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iostream>
 # include <AForm.hpp>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -41,10 +41,14 @@ class Bureaucrat
 		void		downgrade( void );
 
 		Bureaucrat&	operator=(Bureaucrat const& src);
-		void		signForm( Form &form);
+		void		signForm( AForm &form);
 
 		int			get_valid_grade( int *grade, std::string msg);
 		int			verify_up_or_down(int *grade);
+
+		void		executeForm(AForm const & form) const;
+		bool		canExecute(AForm const& form) const;
+
 
 
 	private:
