@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/03 21:48:38 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/05 00:08:05 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class AForm
 		bool			verify_grade(int note_required, int nota);
 
 		void virtual	execute(Bureaucrat const & executor) = 0;
+	
+		AForm&			operator=(AForm const& form);
 
 	private:
 		const std::string	_name;

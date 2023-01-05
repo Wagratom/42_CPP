@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:29:15 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/04 23:18:35 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ class Bureaucrat
 
 		void		executeForm(AForm const & form) const;
 		bool		canExecute(AForm const& form) const;
-
-
 
 	private:
 		const std::string 	_name;
