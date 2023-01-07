@@ -6,28 +6,34 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 23:18:04 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/07 12:19:24 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Form.hpp>
 
+/*###################			Ults					   ###################*/
+
 const char* Form::GradeTooLowException::what() const throw(){
 	return ("excuse me. Your grade is too low to be part of our team");
 }
 
+/*###################		Constructors				   ###################*/
+
 Form::Form( std::string const name, int gradeSing, int grade_Execute) : _name(name), _signed(false), _gradeSing(gradeSing), _gradeExecute( grade_Execute ){
 	std::cout << "Default constructor called Form " << name << std::endl;
-}
-
-Form::~Form() {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Form::Form( Form const	&src ) : _name(src._name), _gradeExecute(src._gradeExecute), _gradeSing(src._gradeSing), _signed(src._signed) {
 	std::cout << "Form copy constructor called" << std::endl;
 	*this = src;
 }
+
+Form::~Form() {
+	std::cout << "Destructor called" << std::endl;
+}
+
+/*###################			Getts					   ###################*/
 
 std::string		Form::getName( void ) const{
 	return (this->_name);
@@ -44,6 +50,8 @@ int	Form::getGradeSing( void ) const{
 int	Form::getGradeExecute( void ) const{
 	return (this->_gradeExecute);
 }
+
+/*###################			Init					   ###################*/
 
 bool	Form::verify_grade(int note_required, int nota)
 {

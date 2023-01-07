@@ -6,13 +6,13 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 23:25:55 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/07 12:19:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <Bureaucrat.hpp>
 
-/*###################			Ulsts					   ###################*/
+/*###################			Ults					   ###################*/
 
 std::string	Bureaucrat::GradeTooHighException::highException(std::string msg){
 	return ( std::string("Exception 1: ") + msg);
@@ -55,7 +55,6 @@ Bureaucrat::~Bureaucrat(){
 
 /*###################			Getts					   ###################*/
 
-
 std::string	Bureaucrat::getName( void ) const {
 	return (this->_name);
 }
@@ -66,7 +65,7 @@ int	Bureaucrat::getGrade( void ) const {
 
 /*###################			Init					   ###################*/
 
-int	Bureaucrat::verify_up_or_down(int *grade)
+int	Bureaucrat::is_valid_UpDown(int *grade)
 {
 	if (!is_valid_grade( grade, "You are trying to go to a grid that does not supported. Action canceled, send anything to continue"))
 		return (0);
@@ -77,7 +76,7 @@ int	Bureaucrat::verify_up_or_down(int *grade)
 void	Bureaucrat::upgrade( void )
 {
 	int grade = this->_grade - 1;
-	if (!verify_up_or_down( &grade))
+	if (!is_valid_UpDown( &grade))
 		return ;
 	this->_grade = grade;
 	std::cout << "successfully Upgrade" << std::endl;
@@ -85,7 +84,7 @@ void	Bureaucrat::upgrade( void )
 
 void	Bureaucrat::downgrade( void ){
 	int grade = this->_grade + 1;
-	if (!verify_up_or_down( &grade))
+	if (!is_valid_UpDown( &grade))
 		return ;
 	this->_grade = grade;
 	std::cout << "successfully downgrade" << std::endl;

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 11:29:49 by wwallas-          #+#    #+#              #
-#    Updated: 2023/01/03 11:59:37 by wwallas-         ###   ########.fr        #
+#    Updated: 2023/01/07 00:11:30 by wwalas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 INCLUDE		=	-I./
-NAME		=	form
+NAME		=	bureaucrat
 
 
 CC			=	c++ -std=c++98

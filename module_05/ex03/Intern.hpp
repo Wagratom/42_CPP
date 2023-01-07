@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 13:49:37 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 23:01:11 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/07 12:02:19 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,22 @@ class Intern
 				const char*	what() const throw ();
 		};
 
-		Intern( );
-		~Intern();
+		Intern( void );
+		Intern( Intern const &src );
+		~Intern( void );
 
-		t_dictionary*	dictionary( void );
+		t_dictionary*	dictionary( void ) const;
 
 		AForm*	Robotomy( std::string destiny );
 		AForm*	Shrubbery( std::string destiny );
 		AForm*	Presidential( std::string destiny);
 
 		AForm*	makeForm( std::string name, std::string target );
-		AForm*	get_function( std::string name, std::string target );
-		bool	try_execute( AForm** aux, std::string target);
+		AForm*	getCorrectForm( std::string name, std::string target );
+		void	tryExecute( AForm*& aux, std::string target);
+
+		Intern&	operator=( Intern const &src );
+
 	private:
 		t_dictionary*	_dictionary;
 };

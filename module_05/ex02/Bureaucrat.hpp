@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 23:14:16 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/07 00:04:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ class Bureaucrat
 
 		void		signForm( AForm &form);
 
-		int			get_valid_grade( int *grade, std::string msg);
-		int			verify_up_or_down(int *grade);
+		bool		is_valid_grade( int *grade, std::string msg);
+		int			is_valid_UpDown(int nbr);
 
 		void		executeForm(AForm const & form) const;
 		bool		canExecute(AForm const& form) const;

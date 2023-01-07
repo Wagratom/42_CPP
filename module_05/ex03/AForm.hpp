@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/05 00:08:05 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/07 00:37:41 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class AForm
 				const char* what() const throw();
 		};
 		AForm(  std::string const name, int gradeSing, int grade_Execute );
+		AForm(  AForm const &src );
 		~AForm();
 
 		std::string		getName( void ) const;
@@ -35,10 +36,10 @@ class AForm
 
 		void			beSigned( Bureaucrat& src);
 
-		bool			verify_grade(int note_required, int nota);
+		void			signGrade(int note_required, int nota);
 
 		void virtual	execute(Bureaucrat const & executor) = 0;
-	
+
 		AForm&			operator=(AForm const& form);
 
 	private:

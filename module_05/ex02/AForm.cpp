@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 23:08:22 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/07 00:25:37 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ AForm::~AForm() {
 	std::cout << "Destructor called" << std::endl;
 }
 
+/*###################			Getts					   ###################*/
+
 std::string		AForm::getName( void ) const{
 	return (this->_name);
 }
-
-/*###################			Getts					   ###################*/
 
 bool	AForm::getSigned( void ) const{
 	return (this->_signed);
@@ -59,9 +59,10 @@ void	AForm::signGrade(int note_required, int nota)
 	std::cout << "Congratulations, you managed to sign with our team for " << getName() << std::endl;
 }
 
-void	AForm::beSigned( Bureaucrat& src) {
+void	AForm::beSigned( Bureaucrat& src)
+{
 	try {
-		signGrade(this->_gradeSing, src.getGrade());
+		signGrade(getGradeSing(), src.getGrade());
 	}
 	catch(std::exception &obj){
 		std::cout << obj.what() << " for " << getName() << std::endl;

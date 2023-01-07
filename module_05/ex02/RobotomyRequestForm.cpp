@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:39:27 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 22:59:26 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/07 12:26:08 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string destiny ) : AForm( "Roboto
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &src )  : AForm( "RobotomyRequestForm", 72, 45), _destiny(src._destiny) {
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
+	*this = src;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {

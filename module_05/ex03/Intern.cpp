@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 13:49:37 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 23:02:29 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/07 12:01:54 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Intern.hpp>
 
+/*###################			Ulsts					   ###################*/
+
 const char*	Intern::GradeTooLowException::what() const throw (){
-	return ( "\nName passed not valid, Choose a valid Names : \npresidential pardon \nshrubbery creation\nrobotomy request" );
+	return ( "\nInvalid name passed, valid names \npresidential pardon\nshrubbery creation\nrobotomy request" );
 }
 
-t_dictionary*	Intern::dictionary( void ) {
+t_dictionary*	Intern::dictionary( void ) const {
 	static t_dictionary	dicti[] =	{
 						(t_dictionary){ "presidential pardon", &Intern::Presidential},
 						(t_dictionary){"shrubbery creation", &Intern::Shrubbery},
@@ -26,13 +28,22 @@ t_dictionary*	Intern::dictionary( void ) {
 	return (dicti);
 }
 
+/*###################		Constructors				   ###################*/
+
 Intern::Intern( void ) : _dictionary(dictionary()) {
 	std::cout << "Default constructor called Intern" << std::endl;
+}
+
+Intern::Intern( Intern const &src ) : _dictionary(src.dictionary()) {
+	std::cout << "Intern copy constructor called" << std::endl;
+	*this = src;
 }
 
 Intern::~Intern() {
 	std::cout << "destructor called" << std::endl;
 }
+
+/*###################			Init					   ###################*/
 
 AForm*	Intern::Presidential( std::string destiny) {
 	return (new PresidentialPardonForm(destiny));
@@ -46,7 +57,7 @@ AForm*	Intern::Robotomy( std::string destiny ) {
 	return (new RobotomyRequestForm(destiny));
 }
 
-AForm*	Intern::get_function( std::string name, std::string target )
+AForm*	Intern::getCorrectForm( std::string name, std::string target )
 {
 	int	i = -1;
 
@@ -57,31 +68,35 @@ AForm*	Intern::get_function( std::string name, std::string target )
 		std::cout << "Intern creates "<< name << std::endl;
 		return ((this->*_dictionary[i].value)(target));
 	}
+	throw Intern::GradeTooLowException();
 	return (NULL);
 }
 
-bool	Intern::try_execute( AForm** aux, std::string target)
+void	Intern::tryExecute( AForm*& aux, std::string target)
 {
 	std::string name;
 
 	std::cout << "Please pass a valid name this time: ";
 	std::getline(std::cin, name);
-	*aux = get_function(name, target);
-	if (*aux)
-		return (true);
-	return (false);
+	aux = makeForm(name, target);
 }
 
 AForm*	Intern::makeForm( std::string name, std::string target )
 {
-	AForm*	object = get_function(name, target);
+	AForm*	object;
+
 	try {
-		if (object == NULL)
-			throw Intern::GradeTooLowException();
+		object = getCorrectForm(name, target);
 	}
 	catch(std::exception& obj) {
 		std::cout << obj.what() << std::endl;
-		while (!try_execute(&object, target));
+		tryExecute(object, target);
 	}
 	return (object);
+}
+
+/*###################			Operators				   ###################*/
+
+Intern&	Intern::operator=( Intern const &src) {
+	return (*this);
 }

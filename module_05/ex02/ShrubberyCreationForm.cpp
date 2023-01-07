@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:39:27 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 22:57:29 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/07 12:26:13 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string destiny ) : AForm("Shr
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const &src ) : AForm("ShrubberyCreationForm", 145, 137), _destiny(src._destiny) {
 	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
+	*this = src;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
