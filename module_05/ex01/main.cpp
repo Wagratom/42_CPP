@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:36:33 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 19:31:27 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/06 23:26:28 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main () {
 	pedrin.signForm(police);
 
 	std::cout << std::endl;
+	std::cout << teacher.getName() << std::endl;
 	teacher.getName();
 	teacher.beSigned(pedrin);
 	pedrin.signForm(teacher);

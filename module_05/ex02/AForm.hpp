@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 22:25:43 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/06 23:06:19 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class AForm
 		void			signGrade(int note_required, int nota);
 
 		void virtual	execute(Bureaucrat const & executor) = 0;
+
+		AForm			&operator=( AForm const &src);
 
 	private:
 		const std::string	_name;

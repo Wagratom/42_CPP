@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 22:25:29 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/06 23:08:22 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ AForm::AForm( std::string const name, int gradeSing, int grade_Execute) : _name(
 
 AForm::AForm( AForm const &src) : _name(src._name), _signed(src._signed), _gradeSing(src._gradeSing), _gradeExecute( src._gradeExecute ) {
 	std::cout << "AForm copy constructor called " << std::endl;
+	*this = src;
 }
 
 AForm::~AForm() {
@@ -68,6 +69,15 @@ void	AForm::beSigned( Bureaucrat& src) {
 }
 
 /*###################			Operators				   ###################*/
+
+AForm	&AForm::operator=( AForm const &src)
+{
+	(std::string)this->_name =src._name;
+	(int&)this->_gradeExecute = src.getGradeExecute();
+	(int&)this->_gradeSing = src.getGradeSing();
+	this->_signed = src.getSigned();
+	return (*this);
+}
 
 std::ostream&	operator<<(std::ostream& out, AForm&	src) {
 	std::cout << "name: " << src.getName() << std::endl;

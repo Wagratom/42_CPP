@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 18:55:43 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/06 23:04:19 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ class Form
 			public:
 				const char* what() const throw();
 		};
-		Form(  std::string const name, int gradeSing, int grade_Execute );
+		Form( std::string const name, int gradeSing, int grade_Execute );
 		Form( Form const	&src );
 		~Form();
 
-		std::string		getName( void ) const;
-		bool			getSigned( void ) const;
-		int				getGradeSing( void ) const;
-		int				getGradeExecute( void ) const;
+		std::string	getName( void ) const;
+		bool		getSigned( void ) const;
+		int			getGradeSing( void ) const;
+		int			getGradeExecute( void ) const;
 
-		void			beSigned( Bureaucrat& src);
-		Form			&operator=( Form const& src);
+		void		beSigned( Bureaucrat& src);
+		Form		&operator=( Form const& src);
 
-		bool			verify_grade(int note_required, int nota);
+		bool		verify_grade(int note_required, int nota);
 
 	private:
 		const std::string	_name;

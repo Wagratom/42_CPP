@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 19:39:45 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/06 23:18:04 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Form::~Form() {
 
 Form::Form( Form const	&src ) : _name(src._name), _gradeExecute(src._gradeExecute), _gradeSing(src._gradeSing), _signed(src._signed) {
 	std::cout << "Form copy constructor called" << std::endl;
+	*this = src;
 }
 
 std::string		Form::getName( void ) const{
@@ -62,19 +63,21 @@ void	Form::beSigned( Bureaucrat& src){
 	this->_signed = verify_grade(this->_gradeSing, src.getGrade());
 }
 
+/*###################			Operators				   ###################*/
+
+Form			&Form::operator=( Form const& src)
+{
+	(std::string)this->_name =src._name;
+	this->_signed = src.getSigned();
+	(int&)this->_gradeExecute = src.getGradeExecute();
+	(int&)this->_gradeSing = src.getGradeSing();
+	return (*this);
+}
+
 std::ostream&	operator<<(std::ostream& out, Form&	src) {
 	std::cout << "name: " << src.getName() << std::endl;
 	std::cout << "Sing: " << src.getSigned() << std::endl;
 	std::cout << "GradeSing: " << src.getGradeSing() << std::endl;
 	std::cout << "radeExecute: " << src.getGradeExecute() << std::endl;
 	return (out);
-}
-
-Form			&Form::operator=( Form const& src) {
-
-	(std::string)this->_name =src._name;
-	this->_signed = src.getSigned();
-	(int&)this->_gradeExecute = src.getGradeExecute();
-	(int&)this->_gradeSing = src.getGradeSing();
-	return (*this);
 }

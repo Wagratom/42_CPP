@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/06 18:43:28 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/06 23:25:44 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,11 @@ class Bureaucrat
 		void		upgrade( void );
 		void		downgrade( void );
 
-		Bureaucrat&	operator=(Bureaucrat const& src);
 		void		signForm( Form &form);
 
-		int			get_valid_grade( int *grade, std::string msg);
+		bool		is_valid_grade( int *grade, std::string msg);
 		int			verify_up_or_down(int *grade);
-
+		Bureaucrat&	operator=(Bureaucrat const& src);
 
 	private:
 		const std::string 	_name;

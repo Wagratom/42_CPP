@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:30:42 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:14:39 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void	Bureaucrat::downgrade( void ){
 	this->_grade = grade;
 	std::cout << "successfully downgrade" << std::endl;
 }
+
 /******************************************************************************/
 Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& src) {
 	(std::string)this->_name =	src.getName();

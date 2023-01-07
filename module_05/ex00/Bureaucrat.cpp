@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/03 11:22:33 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:02:51 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	Bureaucrat::get_valid_grade( int *grade, std::string msg )
 	}
 	return (0);
 }
+
 /******************************************************************************/
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:29:15 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:14:16 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Bureaucrat
 			public:
 				std::string	lowException( std::string msg );
 		};
+
 		Bureaucrat( std::string name, int grade );
 		Bureaucrat( Bureaucrat const&	src );
 		~Bureaucrat();
@@ -40,7 +41,6 @@ class Bureaucrat
 		void		upgrade( void );
 		void		downgrade( void );
 
-		Bureaucrat&	operator=(Bureaucrat const& src);
 		void		signForm( AForm &form);
 
 		int			get_valid_grade( int *grade, std::string msg);
@@ -49,7 +49,7 @@ class Bureaucrat
 		void		executeForm(AForm const & form) const;
 		bool		canExecute(AForm const& form) const;
 
-
+		Bureaucrat&	operator=(Bureaucrat const& src);
 
 	private:
 		const std::string 	_name;
