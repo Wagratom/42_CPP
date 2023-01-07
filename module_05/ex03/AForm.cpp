@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:36:18 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/05 00:07:56 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/05 10:08:02 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ std::ostream&	operator<<(std::ostream& out, AForm&	src) {
 AForm&	AForm::operator=(AForm const& src){
 	(std::string)this->_name = src.getName();
 	this->_signed = src.getSigned();
-	this->_gradeSing = src.getGradeSing();
-	this->_gradeExecute = src.getGradeExecute();
 	return (*this);
 }
 

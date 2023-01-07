@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:26:11 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/03 12:37:20 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 18:43:28 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdexcept>
 # include <iostream>
-# include <AForm.hpp>
+# include <Form.hpp>
 
 class Form;
 

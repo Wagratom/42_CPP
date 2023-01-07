@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:39:27 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:20:06 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:57:24 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ class RobotomyRequestForm : public AForm
 		};
 
 		RobotomyRequestForm( std::string destiny );
+		RobotomyRequestForm( RobotomyRequestForm const &src);
 		~RobotomyRequestForm();
 
-		void virtual	execute( Bureaucrat const & executor );
-		bool			canExecute( Bureaucrat const& executor );
+		void virtual		execute( Bureaucrat const & executor );
+		void				canExecute( Bureaucrat const& executor );
 
-		std::string		getDestiny( void ) const;
+		std::string			getDestiny( void ) const;
+
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &src);
 
 	private:
 		const std::string	_destiny;

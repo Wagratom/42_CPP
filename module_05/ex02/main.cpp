@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:36:33 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:35:08 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:58:02 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main () {
 
     ShrubberyCreationForm shruberry("Shurumangos");
     RobotomyRequestForm roboto("Robotozinho");
-    PresidentialPardonForm zaphod("Danzo");
+    PresidentialPardonForm zaphod("Luffy");
 
     std::cout << "\n==== Testing Forms Failed ====\n" << std::endl;
     Bureaucrat bureaucrat("João", 150);

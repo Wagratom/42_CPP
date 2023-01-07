@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:39:27 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:18:41 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:57:35 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ class ShrubberyCreationForm : public AForm
 		};
 
 		ShrubberyCreationForm( std::string destiny );
+		ShrubberyCreationForm( ShrubberyCreationForm const &src );
 		~ShrubberyCreationForm();
 
 		void virtual	execute(Bureaucrat const & executor);
-		bool			canExecute( Bureaucrat const& executor );
+		void			canExecute( Bureaucrat const& executor );
 
 		std::string		getDestiny( void ) const;
 
+		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &src);
 	private:
 		const std::string	_destiny;
 };

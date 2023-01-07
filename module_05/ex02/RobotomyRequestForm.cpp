@@ -3,64 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:39:27 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:19:54 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 22:59:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <RobotomyRequestForm.hpp>
 
 const char*	RobotomyRequestForm::GradeTooLowException::what() const throw(){
-	return ("Error: unable to execute");
+	return ("unable to execute");
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string destiny ) : AForm( "RobotomyRequestForm", 72, 45), _destiny(destiny){
+/*###################		Constructors				   ###################*/
+
+RobotomyRequestForm::RobotomyRequestForm( std::string destiny ) : AForm( "RobotomyRequestForm", 72, 45), _destiny(destiny) {
 	std::cout << "Default constructor called RobotomyRequestForm" << std::endl;
 }
 
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &src )  : AForm( "RobotomyRequestForm", 72, 45), _destiny(src._destiny) {
+	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
+}
 
 RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "Destructor called" << std::endl;
 }
 
+/*###################			Getts					   ###################*/
+
 std::string RobotomyRequestForm::getDestiny( void ) const{
 	return (this->_destiny);
 }
 
-bool	RobotomyRequestForm::canExecute(Bureaucrat const& executor)
+/*###################			Init					   ###################*/
+
+void	RobotomyRequestForm::canExecute(Bureaucrat const& executor)
 {
 	if (getSigned() == false)
-	{
-		std::cout << "Signature is not signed" << std::endl;
-		return (false);
-	}
-	if (executor.getGrade() > getGradeExecute())
-	{
-		std::cout << "You don't have enough points to execute" << std::endl;
-		return (false);
-	}
-	return (true);
+		std::cout << "Error: Signature is not signed ";
+	else if (executor.getGrade() > getGradeExecute())
+		std::cout << "Error: You don't have enough points ";
+	else
+		return ;
+	throw RobotomyRequestForm::GradeTooLowException();
 }
 
 void	tryExecute( void ){
 	if (rand() % 2 == 0)
 		std::cout << "robotomy failed" << std::endl;
 	else
-	{
-		std::cout << "Tchac-tchac-tchac" << std::endl;
-		std::cout << "Vrum Vrum Vrum" << std::endl;
-	}
+		std::cout << "Tchac-tchac-tchac \nVrum Vrum Vrum" << std::endl;
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const& executor) {
 	try{
-		if (canExecute(executor) == false)
-			throw RobotomyRequestForm::GradeTooLowException();
+		canExecute(executor);
 		tryExecute();
 	}
 	catch (std::exception &obj){
 		std::cout << obj.what() << std::endl;
 	}
+}
+
+/*###################			Operators				   ###################*/
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &src)
+{
+	(std::string)this->_destiny = src._destiny;
+	return (*this);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 12:39:27 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/04 12:19:33 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/01/06 23:00:08 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ class PresidentialPardonForm : public AForm
 		};
 
 		PresidentialPardonForm( std::string destiny );
+		PresidentialPardonForm( PresidentialPardonForm const &src );
 		~PresidentialPardonForm();
 
-		void virtual	execute(Bureaucrat const & executor);
-		bool			canExecute( Bureaucrat const& executor );
+		void virtual			execute(Bureaucrat const & executor);
+		void					canExecute( Bureaucrat const& executor );
 
-		std::string		getDestiny( void ) const;
+		std::string				getDestiny( void ) const;
+		PresidentialPardonForm	&operator=(PresidentialPardonForm const &src);
+
 
 	private:
 		const std::string	_destiny;
