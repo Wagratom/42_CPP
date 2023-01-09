@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.cpp                                  :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:32:03 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/01/09 14:59:23 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/01/09 16:06:29 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Serialization.hpp>
-#include <utility>
+#pragma once
 
+#include <iostream>
+#include <cstdlib>
 
-Serialization::Serialization( void ) {
-	std::cout << "Default constructor called" << std::endl;
-}
-
-Serialization::~Serialization( void ) {
-	std::cout << "Destructor called" << std::endl;
-}
-
-Serialization::Serialization( Serialization const& src ) {
-	std::cout << "Serialization Default constructor called" << std::endl;
-	*this = src;
-}
-
-uintptr_t	Serialization::serialize(Data* ptr) {
-	return ((uintptr_t )ptr);
-}
-
-Data*		Serialization::deserialize(uintptr_t raw)
+class Base
 {
-	Data*	conversion = (Data* )raw;
-	return (conversion);
-}
+	public:
+		virtual	~Base ( void );
+
+		Base*	instanceBase(int nbr);
+		void	whichBase(Base *p);
+		void	whichBase(Base &p);
+
+		Base*	generate(void);
+		void	identify(Base* p);
+
+	private:
+};
+
+class A: public Base{};
+class B: public Base{};
+class C: public Base{};
 
