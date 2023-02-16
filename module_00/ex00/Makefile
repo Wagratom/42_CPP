@@ -6,7 +6,7 @@
 #    By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 11:08:46 by wwalas-           #+#    #+#              #
-#    Updated: 2023/02/15 12:06:06 by wwalas-          ###   ########.fr        #
+#    Updated: 2023/02/16 12:40:38 by wwalas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ $(OBJ_DIR)/%.o:	%.cpp
 all:	$(NAME)
 
 $(NAME):	$(OBJ_DIR) $(OBJ)
-	$(CC) $(OBJ) -o $@
+	$$(CC) $(CFLAGS) $(OBJ) -o $@
 
 $(OBJ_DIR):
 	mkdir -p objs

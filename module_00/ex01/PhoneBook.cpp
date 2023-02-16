@@ -6,25 +6,22 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:26:31 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/16 12:20:45 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/16 13:03:29 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <PhoneBook.hpp>
 
-PhoneBook::PhoneBook( void )  : _input(0), _index(0), _size(0)
-{
+PhoneBook::PhoneBook( void )  : _input(0), _index(0), _size(0) {
 }
 
-PhoneBook::~PhoneBook( void )
-{
+PhoneBook::~PhoneBook( void ) {
 }
 
 int	PhoneBook::get_input( void )
 {
 	std::string input;
 
-	std::cout << "How can I help you?" << std::endl;
 	std::cin >>	input;
 	if (input == "ADD")
 		_input = 1;
@@ -39,6 +36,7 @@ int	PhoneBook::get_input( void )
 
 int	PhoneBook::get_valid_input( void )
 {
+	std::cout << "How can I help you?" << std::endl;
 	while(get_input() == -1)
 		std::cout << "Please pass a valid input (ADD, INSERT, EXIT)" << std::endl;
 	return (_input);
@@ -48,6 +46,7 @@ std::string	PhoneBook::get_data( const char *msg )
 {
 	std::string	input;
 
+	std::cin.clear();
 	std::cin.ignore(10000, '\n');
 	std::cout << msg;
 	std::cin >> input;
@@ -95,6 +94,7 @@ void	PhoneBook::print_selected_ctd( std::string msg )
 	if (input <= 0 || input > _size)
 	{
 		std::cout << "Invalid contact" << std::endl;
+		std::cin.clear();
 		return ;
 	}
 	std::cout << "\t contact " << input << std::endl;
@@ -110,7 +110,7 @@ void	PhoneBook::search_contacts( void )
 {
 	int	index = -1;
 
-	std::cout << "|  Index   |First Name|Last Name | Nickname |" << std::endl;
+	std::cout << "\n|  Index   |First Name|Last Name | Nickname |" << std::endl;
 	while (++index < _size)
 	{
 		std::cout << "|";
