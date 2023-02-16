@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:26:31 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/16 11:39:15 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/16 12:15:05 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class PhoneBook
 		void		interactor_variables( void );
 
 		void		search_contacts( void );
-		void		print_str( std::string str );
+		void		print_str_Formated( std::string str );
 		void		print_selected_ctd( std::string msg );
 	private:
 		Contact	_contacts[8];
