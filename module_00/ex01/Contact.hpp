@@ -6,13 +6,14 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 22:02:46 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/15 22:59:16 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/16 09:44:45 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {

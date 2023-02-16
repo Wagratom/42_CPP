@@ -6,11 +6,11 @@
 #    By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 11:08:46 by wwalas-           #+#    #+#              #
-#    Updated: 2023/02/15 23:01:02 by wwalas-          ###   ########.fr        #
+#    Updated: 2023/02/16 09:45:58 by wwalas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	contacts
+NAME		=	phoneBook
 
 SOURCES		=	main.cpp PhoneBook.cpp Contact.cpp
 
