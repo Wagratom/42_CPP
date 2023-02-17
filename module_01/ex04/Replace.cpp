@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:48:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/17 15:52:26 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/17 15:54:12 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ bool	Replace::get_text_input( char* file_name)
 	if (!open_input(file_name))
 		return (false);
 	while (std::getline(_input, line))
-	{
 		_text_input += (line += "\n");
-	}
 	_input.close();
 	return (true);
 }
