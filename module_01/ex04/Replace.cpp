@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:48:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/17 15:43:26 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/17 15:52:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ bool	Replace::open_input( char* name )
 	return (false);
 }
 
-void	Replace::get_text_input( char* file_name)
+bool	Replace::get_text_input( char* file_name)
 {
 	std::string		line;
 
-	open_input(file_name);
+	if (!open_input(file_name))
+		return (false);
 	while (std::getline(_input, line))
+	{
 		_text_input += (line += "\n");
+	}
 	_input.close();
+	return (true);
 }
 
 bool	Replace::open_output( std::string name )
@@ -56,7 +60,7 @@ void	Replace::subst_str1_str2(size_t init_position)
 	// len_str2 = _str2.size();
 	// if (_text_input[init_position + len_str2] != ' ')
 	// 	return ;
-	_text_input.erase(init_position, _str2.size());
+	_text_input.erase(init_position, _str1.size());
 	_text_input.insert(init_position, _str2);
 }
 
@@ -68,14 +72,16 @@ bool	Replace::get_position_str1(size_t& initial_position)
 	return (true);
 }
 
-void	Replace::write_text_replace( std::string name )
+bool	Replace::write_text_replace( std::string name )
 {
 	size_t	init_position;
 
 	init_position = 1;
-	open_output(name);
+	if (!open_output(name))
+		return (false);
 	while (get_position_str1(init_position))
 		subst_str1_str2(init_position);
 	_output << _text_input;
 	_output.close();
+	return (true);
 }
