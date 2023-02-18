@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 17:26:14 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/18 10:20:49 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/18 10:47:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	Harl::error( void ) {
 	std::cout << ERROR << std::endl;
 }
 
-void	Harl::complain( std::string level )
+int	Harl::get_int_level( std::string level )
 {
 	int	index = -1;
 
@@ -52,6 +52,31 @@ void	Harl::complain( std::string level )
 	while ((dict[++index].function))
 	{
 		if (level == dict[index].level)
-			(this->*(dict[index].function))();
+			return (index);
+	}
+	return (index);
+}
+void	Harl::complain( std::string level )
+{
+	int lvl;
+
+	lvl = get_int_level(level);
+	switch (lvl)
+	{
+		case (0):
+			debug();
+			// intentional fall-through
+		case (1):
+			info();
+			// intentional fall-through
+		case (2):
+			warning();
+			// intentional fall-through
+		case (3):
+			error();
+			break;
+		default:
+			std::cout << "Invalid level." << std::endl;
+			break;
 	}
 }
