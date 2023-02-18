@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 12:26:31 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/16 13:03:29 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/16 16:58:07 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	PhoneBook::get_valid_input( void )
 {
 	std::cout << "How can I help you?" << std::endl;
 	while(get_input() == -1)
-		std::cout << "Please pass a valid input (ADD, INSERT, EXIT)" << std::endl;
+		std::cout << "Please pass a valid input (ADD, SEARCH, EXIT)" << std::endl;
 	return (_input);
 }
 
