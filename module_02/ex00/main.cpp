@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 11:16:25 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/19 12:53:16 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/18 15:55:21 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/18 16:00:29 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Weapon.hpp>
+#include <Fixed.hpp>
+int main( void ) {
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-Weapon::Weapon( std::string _type ) : type(_type) {
-	std::cout << "Weapon: Default constructor called" << std::endl;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
 }
 
-Weapon::~Weapon( void ) {
-	std::cout << "Weapon: Destructor called" << std::endl;
-}
-
-const std::string&	Weapon::getType( void ){
-	return (this->type);
-}
-
-void	Weapon::setType( std::string _type) {
-	this->type = _type;
-}

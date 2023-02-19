@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:48:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/17 15:54:12 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/19 13:35:52 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	Replace::open_input( char* name )
 	_input.open(name);
 	if (_input.is_open())
 		return (true);
-	std::cout << "Error: Not creta input file" << std::endl;
+	std::cout << "Error: Not crete input file" << std::endl;
 	return (false);
 }
 

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:16:25 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/17 11:43:09 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/19 13:20:35 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class Weapon
 		Weapon( std::string _type );
 		~Weapon( void );
 
-		std::string&	getType( void );
-		void			setType( std::string _type);
+		const std::string&	getType( void );
+		void				setType( std::string _type);
 
 	private:
 		std::string type;

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 11:16:25 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/19 12:53:16 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/18 15:15:54 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/18 15:58:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Weapon.hpp>
+#pragma once
 
-Weapon::Weapon( std::string _type ) : type(_type) {
-	std::cout << "Weapon: Default constructor called" << std::endl;
-}
+#include <iostream>
 
-Weapon::~Weapon( void ) {
-	std::cout << "Weapon: Destructor called" << std::endl;
-}
+class Fixed
+{
+	public:
+		Fixed( void );
+		Fixed( const Fixed& old);
 
-const std::string&	Weapon::getType( void ){
-	return (this->type);
-}
+		Fixed&	operator=( const Fixed& old);
+		~Fixed( void );
 
-void	Weapon::setType( std::string _type) {
-	this->type = _type;
-}
+	private:
+		int					_number;
+		static const int	_fixe = 8;
+};
+
+
