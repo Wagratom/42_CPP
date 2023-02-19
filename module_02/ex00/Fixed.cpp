@@ -6,11 +6,13 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:15:54 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/18 16:00:01 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:44:59 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Fixed.hpp>
+
+static const int _fixe = 8;
 
 Fixed::Fixed( void ) : _number(0) {
 	std::cout << "Default constrctor called" << std::endl;

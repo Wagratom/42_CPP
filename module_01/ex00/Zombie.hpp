@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:29:41 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/16 16:01:59 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:39:33 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 class Zombie
 {
 	public:
-		Zombie( void );
+		Zombie( std::string name );
 		~Zombie( void );
 
 		void	announce( void );
 
-		void		set_name(std::string name);
 		std::string	get_name( void );
 
 	private:
