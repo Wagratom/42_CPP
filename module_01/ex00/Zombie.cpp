@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:29:31 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/16 16:24:22 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/19 14:42:10 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie::Zombie( void ) {
 }
 
 Zombie::~Zombie( void ) {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << _name <<": Destructor called" << std::endl;
 }
 
 void	Zombie::announce( void ) {
