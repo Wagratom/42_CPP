@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:15:54 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/20 10:01:00 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/20 11:38:45 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Fixed
 		~Fixed( void );
 
 	private:
-		int					_number;
-		static const int	_fixed;
+		int					_fixed;
+		static const int	_fractional;
 };
 
 

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 14:29:31 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/19 17:39:53 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/19 17:44:41 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,4 @@ Zombie::~Zombie( void ) {
 
 void	Zombie::announce( void ) {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-std::string	Zombie::get_name( void ) {
-	return (_name);
 }
