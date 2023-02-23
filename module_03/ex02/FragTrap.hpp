@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 08:32:04 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 08:54:04 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/23 11:00:18 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ class FragTrap : public ClapTrap
 {
 	public:
 		FragTrap( std::string name );
+		FragTrap( const FragTrap& obj );
 		~FragTrap( void );
 
 		void	attack(const std::string& target);
-		void highFivesGuys(void);
+		void	highFivesGuys(void);
+
+		FragTrap&	operator=( const FragTrap& old);
 };
