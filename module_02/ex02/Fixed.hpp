@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:15:54 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/21 15:51:21 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/23 09:55:53 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class Fixed
 		Fixed( const float number );
 		Fixed( const Fixed& old);
 
-		int		getRawBits( void ) const;
-		void 	setRawBits( int const raw );
+		int			getRawBits( void ) const;
+		void 		setRawBits( int const raw );
 
-		float	toFloat( void ) const;
-		int		toInt( void ) const;
+		float		toFloat( void ) const;
+		int			toInt( void ) const;
 
 		Fixed&		operator=( const Fixed& old);
 
@@ -38,15 +38,15 @@ class Fixed
 		bool		operator>=(  const Fixed& old);
 		bool		operator!=(  const Fixed& old);
 
-		Fixed			operator*( const Fixed& old);
-		Fixed			operator/( const Fixed& old);
-		Fixed			operator+( const Fixed& old);
-		Fixed			operator-( const Fixed& old);
+		Fixed		operator*( const Fixed& old);
+		Fixed		operator/( const Fixed& old);
+		Fixed		operator+( const Fixed& old);
+		Fixed		operator-( const Fixed& old);
 
-		Fixed			operator++( void );
-		Fixed			operator--( void );
-		Fixed			operator++(int);
-		Fixed			operator--(int);
+		Fixed		operator++( void );
+		Fixed		operator--( void );
+		Fixed		operator++(int);
+		Fixed		operator--(int);
 
 		static Fixed&	max(Fixed& obj1, Fixed& obj2);
 		static Fixed&	min(Fixed& obj1, Fixed& obj2);

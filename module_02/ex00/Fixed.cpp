@@ -6,13 +6,13 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:15:54 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/20 11:18:32 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/22 09:31:22 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Fixed.hpp>
 
-static const int _fractional = 8;
+int const Fixed::_fractional = 8;
 
 Fixed::Fixed( void ) : _fixed(0) {
 	std::cout << "Default constructor called" << std::endl;

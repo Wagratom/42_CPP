@@ -6,13 +6,13 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:55:21 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/21 17:36:36 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/23 10:02:17 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Fixed.hpp>
 
-void	test_pre_encrement( void )
+void	test_pos_encrement( void )
 {
 	Fixed a;
 
@@ -27,7 +27,7 @@ void	test_pre_encrement( void )
 
 }
 
-void	test_pos_encrement( void )
+void	test_pre_encrement( void )
 {
 	Fixed a;
 
