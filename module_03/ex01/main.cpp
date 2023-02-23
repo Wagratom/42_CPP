@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:17:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/22 12:15:47 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/23 08:30:15 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,22 @@
 
 int	main(void)
 {
-	ClapTrap	luffy("Luffy");
 	ClapTrap	mingo("Doflamingo");
-	ScavTrap	test("teste");
+	ScavTrap	luffy("Luffy");
+
+	luffy.printStatus();
+	mingo.printStatus();
+
+	luffy.attack("Doflamingo");
+	mingo.takeDamage(luffy.getAttack());
+	mingo.takeDamage(luffy.getAttack());
+	std::cout << std::endl;
+
+	luffy.printStatus();
+	mingo.printStatus();
+
+	mingo.beRepaired(30);
+
+	luffy.printStatus();
+	mingo.printStatus();
 }

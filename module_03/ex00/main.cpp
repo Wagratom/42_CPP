@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:17:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/22 12:20:33 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/22 12:22:10 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 int	main(void)
 {
-	ClapTrap	luffy("Trafalgar ");
+	ClapTrap	trafalgar("Trafalgar ");
 	ClapTrap	mingo("Doflamingo");
 
-	luffy.printStatus();
+	trafalgar.printStatus();
 	mingo.printStatus();
 
-	luffy.attack("Doflamingo");
-	mingo.takeDamage(luffy.getAttack());
+	trafalgar.attack("Doflamingo");
+	mingo.takeDamage(trafalgar.getAttack());
 	std::cout << std::endl;
 
-	luffy.printStatus();
-	mingo.printStatus();
-
-	mingo.beRepaired(11);
-	std::cout << std::endl;
-
-	luffy.printStatus();
+	trafalgar.printStatus();
 	mingo.printStatus();
 
 	mingo.beRepaired(11);
+	std::cout << std::endl;
+
+	trafalgar.printStatus();
+	mingo.printStatus();
+
+	mingo.beRepaired(11);
 	mingo.beRepaired(11);
 	mingo.beRepaired(11);
 	mingo.beRepaired(11);
@@ -45,7 +45,7 @@ int	main(void)
 	mingo.beRepaired(11);
 	std::cout << std::endl;
 
-	luffy.printStatus();
+	trafalgar.printStatus();
 	mingo.printStatus();
 
 

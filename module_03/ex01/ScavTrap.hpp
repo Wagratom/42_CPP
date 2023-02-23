@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:09:32 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/22 12:15:20 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/22 21:35:47 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ class ScavTrap : public ClapTrap
 {
 	public:
 		ScavTrap( std::string name );
-		~ScavTrap();
-	private:
-		/* data */
+		~ScavTrap( void );
+
+		void guardGate( void );
 };
 

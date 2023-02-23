@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:06:59 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/22 12:19:44 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/23 08:30:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ClapTrap::attack(const std::string& target)
 void	ClapTrap::takeDamage(unsigned int amount) {
 	if (_HitPoints <= 0)
 	{
-		std::cout << "You just tried to attack a corpse" << std::endl;
+		std::cout << "ClapTrap: You just tried to attack a corpse" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap: "<< _name << " Just took "<< amount << " damage" << std::endl;
