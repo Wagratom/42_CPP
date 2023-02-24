@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 12:36:32 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 14:49:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ class Dog : public Animal
 
 		void		makeSound( void ) const;
 		std::string	getType( void ) const ;
+		void		printIdeas( void ) const ;
 
 		Dog&	operator=(const Dog& obj);
 
 		private:
-		Brain*	_brain;
+			Brain*	_brain;
 };

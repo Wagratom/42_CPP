@@ -6,15 +6,16 @@
 #    By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 11:08:46 by wwalas-           #+#    #+#              #
-#    Updated: 2023/02/24 12:38:33 by wwalas-          ###   ########.fr        #
+#    Updated: 2023/02/24 15:19:22 by wwalas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	animal
 
 INCLUDE		=	-I./includes
-SOURCES		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp \
-				Brain.cpp
+
+SOURCES		=	main.cpp Animal.cpp Dog.cpp Cat.cpp  \
+				Brain.cpp my_test.cpp \
 
 OBJ			=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 OBJ_DIR		=	objs
