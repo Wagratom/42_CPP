@@ -1,40 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:12:06 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:29:18 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Dog.hpp>
+#include <Cat.hpp>
 
-Dog::Dog( void ) : Animal("Dog") {
-	std::cout << "Dog: Default constructor called" << std::endl;
+Cat::Cat( void ) : Animal("Cat") {
+	std::cout << "Cat: Default constructor called" << std::endl;
+	this->_brain = new Brain;
 }
 
-Dog::Dog( const Dog& obj ) : Animal(obj) {
-	std::cout << "Dog: Copy constructor called" << std::endl;
+Cat::Cat( const Cat& obj ) : Animal(obj) {
+	std::cout << "Cat: Copy constructor called" << std::endl;
 	this->type = obj.type;
 }
 
-Dog::~Dog( void ) {
-	std::cout << "Dog: Destructor called" << std::endl;
+Cat::~Cat( void ) {
+	std::cout << "Cat: Destructor called" << std::endl;
+	delete this->_brain;
 }
 
-void	Dog::makeSound( void ) const{
-	std::cout << "🐶" << ": Au au" << std::endl;
+void	Cat::makeSound( void ) const {
+	std::cout << "🐱" << ": Miaw miaw" << std::endl;
 }
 
-std::string	Dog::getType( void ) const {
+std::string	Cat::getType( void ) const {
 	return (this->type);
 }
 
-Dog&	Dog::operator=( const Dog& obj)
+void	Cat::printIdeas( void ) const
+{
+	for (int i = 0; i < 100; i++) {
+		std::cout << this->_brain->getBrain()[i] << std::endl;
+	}
+
+}
+
+Cat&	Cat::operator=( const Cat& obj)
 {
 	this->type = obj.getType();
+	*this->_brain = *obj._brain;
 	return (*this);
 }

@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:12:06 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 14:49:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Dog.hpp>
+#pragma once
 
-Dog::Dog( void ) : Animal("Dog") {
-	std::cout << "Dog: Default constructor called" << std::endl;
-}
+#include <Animal.hpp>
+#include <Brain.hpp>
 
-Dog::Dog( const Dog& obj ) : Animal(obj) {
-	std::cout << "Dog: Copy constructor called" << std::endl;
-	this->type = obj.type;
-}
-
-Dog::~Dog( void ) {
-	std::cout << "Dog: Destructor called" << std::endl;
-}
-
-void	Dog::makeSound( void ) const{
-	std::cout << "🐶" << ": Au au" << std::endl;
-}
-
-std::string	Dog::getType( void ) const {
-	return (this->type);
-}
-
-Dog&	Dog::operator=( const Dog& obj)
+class Dog : public Animal
 {
-	this->type = obj.getType();
-	return (*this);
-}
+	public:
+		Dog( void );
+		Dog( const Dog& obj );
+		~Dog( void );
+
+		void		makeSound( void ) const;
+		std::string	getType( void ) const ;
+		void		printIdeas( void ) const ;
+
+		Dog&	operator=(const Dog& obj);
+
+		private:
+			Brain*	_brain;
+};

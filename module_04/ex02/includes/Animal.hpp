@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 13:04:34 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/23 13:49:06 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/24 16:05:40 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <Animal.hpp>
+#include <iostream>
 
-class Cat : public Animal
+class Animal
 {
 	public:
-		Cat( void );
-		Cat( const Cat& obj );
-		~Cat( void );
+		Animal( void );
+		Animal( std::string _type );
+		Animal( const Animal& obj );
+		virtual ~Animal( void );
 
-		void		makeSound( void ) const;
+		virtual void		makeSound( void ) const = 0;
 		std::string	getType( void ) const;
 
-		Cat&	operator=(const Cat& obj);
+		Animal&	operator=(const Animal& obj);
+
+	protected:
+		std::string type;
 };
 

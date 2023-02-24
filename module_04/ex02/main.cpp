@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:01:20 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:46:51 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:05:56 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ void	test_main( void )
 
 int main()
 {
-	// test_main();
+	// Animal *animal = new Animal;
+
+	test_main();
 	// my_test();
 	// ideas_cat();
-	ideas_dog();
+	// ideas_dog();
 	return 0;
 }

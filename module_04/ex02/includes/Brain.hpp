@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 13:04:34 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/24 12:27:28 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/24 15:23:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <Animal.hpp>
+#include <iostream>
 
-class Cat : public Animal
+class Brain
 {
 	public:
-		Cat( void );
-		Cat( const Cat& obj );
-		~Cat( void );
+		Brain( void );
+		Brain( const Brain& obj );
+		~Brain( void );
 
-		void		makeSound( void ) const;
-		std::string	getType( void ) const;
+		std::string*	getBrain();
 
-		Cat&	operator=(const Cat& obj);
+		Brain&	operator=(const Brain& obj);
+
+	private:
+		std::string	_ideas[100]; // troca na hora de enviar
 };
 
