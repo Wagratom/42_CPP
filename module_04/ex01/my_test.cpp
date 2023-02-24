@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:01:20 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:26:38 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:35:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,21 @@ void	my_test( void )
 /*                                  ideas                                     */
 /******************************************************************************/
 
+void	ideas_cat( void )
+{
+	Cat* cat1 = new Cat();
+	Cat* cat2 = new Cat();
 
-void	ideas( void )
+	*cat2 = *cat1;
+
+	delete cat1;
+
+	cat2->printIdeas();
+
+	delete cat2;
+}
+
+void	ideas_dog( void )
 {
 	Dog* dog1 = new Dog();
 	Dog* dog2 = new Dog();

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:01:20 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:19:09 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:33:13 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <Dog.hpp>
 
 void	my_test( void );
-void	ideas( void );
+void	ideas_cat( void );
+void	ideas_dog( void );
 
 void	test_main( void )
 {
@@ -34,6 +35,7 @@ int main()
 {
 	// test_main();
 	// my_test();
-	ideas();
+	// ideas_cat();
+	ideas_dog();
 	return 0;
 }

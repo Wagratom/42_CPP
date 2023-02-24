@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 12:27:28 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:24:05 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:32:21 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ std::string*	Brain::getBrain( void ) {
 Brain&	Brain::operator=( const Brain& obj)
 {
 	for (int i = 0; i < 100; i++) {
-		this->_ideas[i] = std::string(obj._ideas[i]);
+		this->_ideas[i] = obj._ideas[i];
 	}
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 15:24:08 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:29:18 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	Cat::printIdeas( void ) const
 
 Cat&	Cat::operator=( const Cat& obj)
 {
-	this->_brain = obj._brain;
 	this->type = obj.getType();
+	*this->_brain = *obj._brain;
 	return (*this);
 }
