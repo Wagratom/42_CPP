@@ -16,7 +16,7 @@ WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
 	std::cout << "WrongCat: Default constructor called" << std::endl;
 }
 
-WrongCat::WrongCat( const WrongCat& obj ) : WrongAnimal("WrongCat") {
+WrongCat::WrongCat( const WrongCat& obj ) : WrongAnimal(obj) {
 	std::cout << "WrongCat: Copy constructor called" << std::endl;
 	this->type = obj.type;
 }

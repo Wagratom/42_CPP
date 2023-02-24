@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:52:23 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 18:40:42 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 12:57:14 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Dog::Dog( void ) : Animal("Dog") {
 	std::cout << "Dog: Default constructor called" << std::endl;
 }
 
-Dog::Dog( const Dog& obj ) : Animal() {
+Dog::Dog( const Dog& obj ) : Animal(obj) {
 	std::cout << "Dog: Copy constructor called" << std::endl;
 	this->type = obj.type;
 }
