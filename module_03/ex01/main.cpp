@@ -6,14 +6,15 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:17:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 17:46:18 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 18:17:45 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ClapTrap.hpp>
 #include <ScavTrap.hpp>
 
-void	main_passed( void )
+
+void	main_passed(void)
 {
 	ClapTrap	trafalgar("Trafalgar ");
 	ClapTrap	mingo("Doflamingo");
@@ -30,20 +31,20 @@ void	main_passed( void )
 	trafalgar.printStatus();
 	mingo.printStatus();
 
-	mingo.beRepaired(11);
+	mingo.beRepaired(2);
 	std::cout << std::endl;
 
 	trafalgar.printStatus();
 	mingo.printStatus();
 
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
 	std::cout << std::endl;
 
 	trafalgar.printStatus();
@@ -96,6 +97,7 @@ int	main(void)
 	mingo.printStatus();
 
 	luffy.guardGate();
+	std::cout << std::endl;
 
 	// main_passed();
 }

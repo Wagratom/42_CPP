@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 17:28:29 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 17:45:23 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 18:09:25 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	if (!is_alive())
 		return ;
-	if (amount + _HitPoints >= 10)
-		amount = 10 - _HitPoints;
 	std::cout << "Sucess: " << _Name << " " << amount << " repaired hit points" << std::endl;
 	_HitPoints += amount;
 	_EnergyPoints -= 1;

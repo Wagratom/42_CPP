@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 08:32:04 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/24 11:45:47 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 17:57:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,19 @@ FragTrap::~FragTrap( void ) {
 }
 
 void	FragTrap::highFivesGuys(void) {
-	std::cout << "highFivesGuys" << std::endl;
+	std::cout << _Name << ": HighFivesGuys" << std::endl;
 
 }
 
-void	FragTrap::attack(const std::string& target) {
+void	FragTrap::attack(const std::string& target)
+{
+	if (!has_EnergyPoints())
+		return ;
+	if (!is_alive())
+		return ;
 	std::cout << "Serious Cut: " << _Name << " attacks " << target;
 	std::cout << ", causing " << _AttackDamage << " points of damage!" << std::endl;
+	_EnergyPoints -= 1;
 }
 
 FragTrap&	FragTrap::operator=( const FragTrap& old)

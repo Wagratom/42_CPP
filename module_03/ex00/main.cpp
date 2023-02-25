@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:17:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 17:30:41 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 18:12:50 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ int	main(void)
 	trafalgar.printStatus();
 	mingo.printStatus();
 
-	mingo.beRepaired(11);
+	mingo.beRepaired(2);
 	std::cout << std::endl;
 
 	trafalgar.printStatus();
 	mingo.printStatus();
 
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
+	mingo.beRepaired(0);
 	std::cout << std::endl;
 
 	trafalgar.printStatus();

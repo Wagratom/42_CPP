@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 17:28:18 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 17:28:20 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 18:08:42 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	ClapTrap::has_EnergyPoints( void )
 {
 	if (_EnergyPoints > 0)
 		return (true);
-	std::cout << "Does not have energy points" << std::endl;
+	std::cout << _Name << ": Does not have energy points" << std::endl;
 	return (false);
 }
 
@@ -70,8 +70,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		return ;
 	if (!is_alive())
 		return ;
-	if (amount + _HitPoints >= 10)
-		amount = 10 - _HitPoints;
 	std::cout << "Sucess: " << _Name << " " << amount << " repaired hit points" << std::endl;
 	_HitPoints += amount;
 	_EnergyPoints -= 1;
