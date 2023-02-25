@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 10:06:59 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 10:36:27 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/25 17:28:29 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/25 17:45:23 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ClapTrap.hpp>
 
-ClapTrap::ClapTrap(std::string name) : _Name(name), _HitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
+ClapTrap::ClapTrap(std::string name) : _Name(name), _HitPoints(10), _EnergyPoints(10),
+_AttackDamage(0) {
 	std::cout << "ClapTrap: Default constructor called" << std::endl;
 }
 
@@ -21,20 +22,42 @@ _EnergyPoints(obj._EnergyPoints), _AttackDamage(obj._AttackDamage) {
 	std::cout << "ClapTrap: Copy constructor called" << std::endl;
 }
 
-ClapTrap::~ClapTrap() {
+ClapTrap::~ClapTrap( void ) {
 	std::cout << "ClapTrap: Destructor called" << std::endl;
+}
+
+bool	ClapTrap::has_EnergyPoints( void )
+{
+	if (_EnergyPoints > 0)
+		return (true);
+	std::cout << _Name << ": Does not have energy points" << std::endl;
+	return (false);
+}
+
+bool	ClapTrap::is_alive( void )
+{
+	if (_HitPoints > 0)
+		return (true);
+	std::cout << "A corpse can't do much" << std::endl;
+	return (false);
 }
 
 void	ClapTrap::attack(const std::string& target)
 {
+	if (!has_EnergyPoints())
+		return ;
+	if (!is_alive())
+		return ;
 	std::cout << "ClapTrap: " << _Name << " attacks " << target;
 	std::cout << ", causing " << _AttackDamage << " points of damage!" << std::endl;
+	_EnergyPoints -= 1;
 }
 
-void	ClapTrap::takeDamage(unsigned int amount) {
+void	ClapTrap::takeDamage(unsigned int amount)
+{
 	if (_HitPoints <= 0)
 	{
-		std::cout << "ClapTrap: You just tried to attack a corpse" << std::endl;
+		std::cout << "You just tried to attack a corpse" << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap: "<< _Name << " Just took "<< amount << " damage" << std::endl;
@@ -43,11 +66,10 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_EnergyPoints <= 0)
-	{
-		std::cout << "Does not have energy points" << std::endl;
+	if (!has_EnergyPoints())
 		return ;
-	}
+	if (!is_alive())
+		return ;
 	if (amount + _HitPoints >= 10)
 		amount = 10 - _HitPoints;
 	std::cout << "Sucess: " << _Name << " " << amount << " repaired hit points" << std::endl;
@@ -69,8 +91,11 @@ int		ClapTrap::getAttack( void ) {
 	return (this->_AttackDamage);
 }
 
-ClapTrap&	ClapTrap::operator=( const ClapTrap& old)
-{
+void	ClapTrap::setAttack( int attackDamage ) {
+	 this->_AttackDamage = attackDamage;
+}
+
+ClapTrap&	ClapTrap::operator=( const ClapTrap& old){
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_Name = old._Name;
 	this->_AttackDamage = old._AttackDamage;

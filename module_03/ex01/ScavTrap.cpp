@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:09:32 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 10:39:11 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 17:47:20 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,18 @@ ScavTrap::~ScavTrap( void ) {
 }
 
 void	ScavTrap::guardGate( void ) {
-	std::cout << "Is now in Gate keeper mode" << std::endl;
+	std::cout << _Name << ": Is now in Gate keeper mode" << std::endl;
 }
 
-void	ScavTrap::attack(const std::string& target) {
-	std::cout << "King Kong: " << _Name << " attacks " << target;
+void	ScavTrap::attack(const std::string& target)
+{
+	if (!has_EnergyPoints())
+		return ;
+	if (!is_alive())
+		return ;
+	std::cout << "Gomu Gomu no Gatling Gun: " << _Name << " attacks " << target;
 	std::cout << ", causing " << _AttackDamage << " points of damage!" << std::endl;
+	_EnergyPoints -= 1;
 }
 
 ScavTrap&	ScavTrap::operator=( const ScavTrap& old)

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:06:59 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 10:28:38 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 17:18:06 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,31 @@ ClapTrap::~ClapTrap( void ) {
 	std::cout << "ClapTrap: Destructor called" << std::endl;
 }
 
+bool	ClapTrap::has_EnergyPoints( void )
+{
+	if (_EnergyPoints > 0)
+		return (true);
+	std::cout << "Does not have energy points" << std::endl;
+	return (false);
+}
+
+bool	ClapTrap::is_alive( void )
+{
+	if (_HitPoints > 0)
+		return (true);
+	std::cout << "A corpse can't do much" << std::endl;
+	return (false);
+}
+
 void	ClapTrap::attack(const std::string& target)
 {
+	if (!has_EnergyPoints())
+		return ;
+	if (!is_alive())
+		return ;
 	std::cout << "ClapTrap: " << _Name << " attacks " << target;
 	std::cout << ", causing " << _AttackDamage << " points of damage!" << std::endl;
+	_EnergyPoints -= 1;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -45,11 +66,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_EnergyPoints <= 0)
-	{
-		std::cout << "Does not have energy points" << std::endl;
+	if (!has_EnergyPoints())
 		return ;
-	}
+	if (!is_alive())
+		return ;
 	if (amount + _HitPoints >= 10)
 		amount = 10 - _HitPoints;
 	std::cout << "Sucess: " << _Name << " " << amount << " repaired hit points" << std::endl;
@@ -66,8 +86,13 @@ void	ClapTrap::printStatus( void )
 	std::cout << std::endl;
 
 }
+
 int		ClapTrap::getAttack( void ) {
 	return (this->_AttackDamage);
+}
+
+void	ClapTrap::setAttack( int attackDamage ) {
+	 this->_AttackDamage = attackDamage;
 }
 
 ClapTrap&	ClapTrap::operator=( const ClapTrap& old){

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:17:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 08:58:13 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:45:10 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(void)
 	shanks.printStatus();
 
 	luffy.attack("Doflamingo");
+	// mingo.attack(" regua ");
 	mingo.takeDamage(luffy.getAttack());
 	shanks.attack("teach");
 	Teach.takeDamage(shanks.getAttack());
@@ -41,4 +42,7 @@ int	main(void)
 
 	luffy.printStatus();
 	mingo.printStatus();
+
+	luffy.guardGate();
+	shanks.highFivesGuys();
 }

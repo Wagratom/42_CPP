@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:06:59 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 10:28:29 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 17:17:44 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ class ClapTrap
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+
 		void	printStatus( void );
+		bool	has_EnergyPoints( void );
+		bool	is_alive( void );
 		int		getAttack( void );
+		void	setAttack( int attackDamage );
 
 		ClapTrap&	operator=( const ClapTrap& old);
 

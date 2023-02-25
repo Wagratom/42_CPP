@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 08:32:04 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/23 10:59:53 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/24 11:45:47 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ FragTrap::~FragTrap( void ) {
 }
 
 void	FragTrap::highFivesGuys(void) {
+	std::cout << "highFivesGuys" << std::endl;
 
 }
 

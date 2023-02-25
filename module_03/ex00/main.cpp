@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:17:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/22 12:22:10 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 17:30:41 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(void)
 
 	trafalgar.printStatus();
 	mingo.printStatus();
+
+	trafalgar.setAttack(2);
 
 	trafalgar.attack("Doflamingo");
 	mingo.takeDamage(trafalgar.getAttack());
@@ -41,12 +43,20 @@ int	main(void)
 	mingo.beRepaired(11);
 	mingo.beRepaired(11);
 	mingo.beRepaired(11);
-	mingo.beRepaired(11);
-	mingo.beRepaired(11);
 	std::cout << std::endl;
 
 	trafalgar.printStatus();
 	mingo.printStatus();
 
+	mingo.setAttack(10);
+	mingo.attack("Trafalgar");
+	trafalgar.takeDamage(mingo.getAttack());
 
+	mingo.attack("Trafalgar");
+	trafalgar.beRepaired(10);
+	trafalgar.attack("Doflamingo");
+	trafalgar.printStatus();
+	mingo.printStatus();
+
+	mingo.beRepaired(10);
 }
