@@ -27,3 +27,12 @@ AMateria*	Cure::clone( void ) const
 	AMateria	*clone = new Cure();
 	return (clone);
 }
+
+std::string const&	Cure::getType() const {
+	return (this->_type);
+}
+
+Cure&	Cure::operator=(Cure const &obj) {
+	this->_type = obj.getType();
+	return (*this);
+}

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:28:59 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 17:03:39 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 19:38:10 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,13 @@ void	Character::use(int idx, ICharacter& target)
 	else
 		this->inventory[idx]->use(target);
 }
+
+Character&	Character::operator=(Character const &obj) {
+	this->_name = obj.getName();
+	this->_index = obj._index;
+	for (int i = 0; i < 4; i++) {
+		this->inventory[i] = obj.inventory[i];
+	}
+	return (*this);
+}
+

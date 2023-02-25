@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:33:38 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 15:19:53 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 19:34:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,9 @@ std::string const&	AMateria::getType() const {
 
 void	AMateria::use(ICharacter& target) {
 	std::cout << "Este e o use da materia" << target.getName() << std::endl;
+}
+
+AMateria&	AMateria::operator=(AMateria const &obj) {
+	this->_type = obj.getType();
+	return (*this);
 }

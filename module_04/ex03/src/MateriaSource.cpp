@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 23:26:32 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 15:44:30 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 20:07:18 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,14 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 	}
 	std::cout << "type is unknown" << std::endl;
 	return (0);
+}
+
+MateriaSource&	MateriaSource::operator=(MateriaSource const &obj)
+{
+	this->_index = obj._index;
+	for (int i = 0; i < 4; i++)
+	{
+		this->_materia[i] = obj._materia[i];
+	}
+	return (*this);
 }

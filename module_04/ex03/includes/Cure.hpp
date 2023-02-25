@@ -25,4 +25,5 @@ class Cure : public AMateria
 		AMateria*			clone( void ) const;
 		std::string const&	getType() const;
 
+		Cure&	operator=(Cure const &obj);
 };

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 23:26:32 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 09:53:20 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 19:46:06 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class MateriaSource : public IMateriaSource
 
 		void		learnMateria(AMateria*);
 		AMateria*	createMateria(std::string const & type);
+
+		MateriaSource&	operator=(MateriaSource const &obj);
 
 	private:
 		AMateria*	_materia[4];

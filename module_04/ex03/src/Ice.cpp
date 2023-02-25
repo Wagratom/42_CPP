@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:43:43 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 15:20:13 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/25 19:44:55 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,13 @@ AMateria*	Ice::clone( void ) const
 {
 	AMateria	*clone = new Ice;
 	return (clone);
+}
+
+std::string const&	Ice::getType() const {
+	return (this->_type);
+}
+
+Ice&	Ice::operator=(Ice const &obj) {
+	this->_type = obj.getType();
+	return (*this);
 }
