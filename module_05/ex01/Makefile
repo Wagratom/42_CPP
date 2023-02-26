@@ -6,15 +6,15 @@
 #    By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 11:08:46 by wwalas-           #+#    #+#              #
-#    Updated: 2023/02/26 12:14:52 by wwalas-          ###   ########.fr        #
+#    Updated: 2023/02/26 14:09:34 by wwalas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	bureaucrat
+NAME		=	form
 
 INCLUDE		=	-I./includes
 
-SOURCES		=	main.cpp Bureaucrat.cpp
+SOURCES		=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ			=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 OBJ_DIR		=	objs
