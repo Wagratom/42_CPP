@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 11:51:58 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:11:14 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
 
 Bureaucrat::Bureaucrat( void ) : _name(""), _grade(0) {
 	std::cout << "Bureaucrat: Default constructor called" << std::endl;
+}
+Bureaucrat::Bureaucrat( const Bureaucrat& old ) : _name(old._name), _grade(old._grade) {
+	std::cout << "Bureaucrat: Copy constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name)

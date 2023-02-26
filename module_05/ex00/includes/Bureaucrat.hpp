@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 11:49:28 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:08:45 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Bureaucrat
 		};
 
 		Bureaucrat( void );
+		Bureaucrat( const Bureaucrat& old );
 		Bureaucrat( std::string name, int grade );
 		~Bureaucrat( void );
 
