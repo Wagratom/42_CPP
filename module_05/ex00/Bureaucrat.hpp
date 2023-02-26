@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 09:47:00 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/26 11:49:28 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class Bureaucrat
 
 		const std::string	getName( void ) const;
 		int					getGrade( void ) const;
+
+		Bureaucrat&	operator=( const Bureaucrat& old);
 
 	private:
 		const std::string	_name;

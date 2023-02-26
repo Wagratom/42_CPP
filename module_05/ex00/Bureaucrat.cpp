@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 09:55:23 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/26 11:51:58 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ std::ostream&	operator<<(std::ostream& old, const Bureaucrat& obj)
 {
 	old << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return (old);
+}
+
+Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& old)
+{
+	(std::string)this->_name = old.getName();
+	this->_grade = old.getGrade();
+	return (*this);
 }
