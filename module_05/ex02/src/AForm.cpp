@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 11:06:57 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 11:07:02 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:53:18 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,22 @@ int	AForm::getGradeExecute( void ) const {
 
 bool	AForm::getSigned( void ) const {
 	return (this->_signed);
+}
+
+void	AForm::setName( const std::string name ) {
+	(std::string)this->_name = name;
+}
+
+void	AForm::setGrade( int grade ) {
+	(int&)this->_grade = grade;
+}
+
+void	AForm::setGradeExecute( int gradeExecute ) {
+	(int&)this->_gradeExecute = gradeExecute;
+}
+
+void	AForm::setSigned( bool signedd ) {
+	this->_signed = signedd;
 }
 
 void	AForm::beSigned( Bureaucrat& bureaucrat)

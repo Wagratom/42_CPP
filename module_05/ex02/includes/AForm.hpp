@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 12:16:17 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 11:20:30 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/27 15:53:24 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@ class AForm
 		int					getGradeExecute( void ) const ;
 		bool				getSigned( void ) const ;
 
-		void				beSigned( Bureaucrat& bureaucrat);
+		void	setName( std::string name );
+		void	setGrade( int grade );
+		void	setGradeExecute( int gradeExecute );
+		void	setSigned( bool signedd );
 
+		void				beSigned( Bureaucrat& bureaucrat);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 		AForm&	operator=( const AForm& obj);
 
 	private:

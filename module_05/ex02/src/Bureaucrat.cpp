@@ -6,18 +6,18 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 11:06:36 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/27 17:04:55 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Bureaucrat.hpp>
 
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-	return ("Error: Grade is too high");
+	return ("Failed: Grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return ("Error: Grade is too low");
+	return ("Failed: Grade is too low");
 }
 
 Bureaucrat::Bureaucrat( void ) : _name(""), _grade(0) {
@@ -64,12 +64,6 @@ void	Bureaucrat::decrement( void )
 	this->_grade  += 1;
 }
 
-std::ostream&	operator<<(std::ostream& old, const Bureaucrat& obj)
-{
-	old << obj.getName() << ", bureaucrat grade " << obj.getGrade();
-	return (old);
-}
-
 void	Bureaucrat::signForm( const AForm& form )
 {
 	if (!form.getSigned())
@@ -79,6 +73,26 @@ void	Bureaucrat::signForm( const AForm& form )
 	}
 	else
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const& form)
+{
+	try {
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	} catch (std::exception &e)
+	{
+		if (!form.getSigned())
+			std::cout << "Failed: Form not signed" << std::endl;
+		else
+			std::cout << "Failed: GradeExecute is too low" << std::endl;
+	}
+}
+
+std::ostream&	operator<<(std::ostream& old, const Bureaucrat& obj)
+{
+	old << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	return (old);
 }
 
 Bureaucrat&	Bureaucrat::operator=( const Bureaucrat& old)

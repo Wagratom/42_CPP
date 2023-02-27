@@ -6,7 +6,7 @@
 #    By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/15 11:08:46 by wwalas-           #+#    #+#              #
-#    Updated: 2023/02/27 11:19:06 by wwalas-          ###   ########.fr        #
+#    Updated: 2023/02/27 12:10:04 by wwalas-          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME		=	form
 
 INCLUDE		=	-I./includes
 
-SOURCES		=	main.cpp Bureaucrat.cpp AForm.cpp
+SOURCES		=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+
 
 OBJ			=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 OBJ_DIR		=	objs

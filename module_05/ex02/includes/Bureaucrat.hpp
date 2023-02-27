@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 11:19:47 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/27 11:58:25 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Bureaucrat
 		int					getGrade( void ) const;
 
 		void		signForm( const AForm& Aform );
+		void		executeForm(AForm const& form);
 
 		Bureaucrat&	operator=( const Bureaucrat& old);
 	private:
