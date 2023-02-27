@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 12:16:17 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 17:32:19 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:32:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ const char*	Form::GradeTooLowException::what() const throw() {
 }
 
 Form::Form( void ) : _name(""), _grade(0), _gradeExecute(0), _signed(false) {
+	std::cout << "Form: Default constructor called" << std::endl;
+}
+
+Form::Form( const Form& obj )
+: _name(obj._name), _grade(obj._grade), _gradeExecute(obj._gradeExecute), _signed(obj._signed) {
 	std::cout << "Form: Default constructor called" << std::endl;
 }
 
@@ -69,4 +74,13 @@ std::ostream&	operator<<(std::ostream& old, const Form& obj)
 	old << "Signed:       " << obj.getSigned() << std::endl;
 
 	return (old);
+}
+
+Form&	Form::operator=( const Form& obj)
+{
+	(std::string)this->_name = obj.getName();
+	(int&)this->_grade = obj.getGrade();
+	(int&)this->_gradeExecute = obj.getGradeExecute();
+	this->_signed = obj.getSigned();
+	return (*this);
 }

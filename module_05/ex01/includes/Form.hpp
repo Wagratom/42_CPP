@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 12:16:17 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 17:25:47 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/26 18:30:06 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Form
 		};
 
 		Form( void );
+		Form( const Form& obj );
 		Form( std::string name, const int grade, const int gradeExecute );
 		~Form( void );
 
@@ -39,6 +40,8 @@ class Form
 		bool				getSigned( void ) const ;
 
 		void				beSigned( Bureaucrat& bureaucrat);
+
+		Form&	operator=( const Form& obj);
 
 	private:
 		const std::string	_name;
