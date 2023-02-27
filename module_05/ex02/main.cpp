@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 11:41:28 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 11:48:05 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/27 11:21:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
+#include <Bureaucrat.hpp>
 #include <AForm.hpp>
 
-class PresidentialPardonForm : public AForm
+int	main ( void )
 {
-	public:
-		PresidentialPardonForm( void );
-		PresidentialPardonForm( std::string target );
-		~PresidentialPardonForm( void );
 
-	private:
-		std::string _target;
-
-};
+	return (0);
+}

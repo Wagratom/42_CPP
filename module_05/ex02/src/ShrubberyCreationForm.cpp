@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 11:37:38 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 11:47:56 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/27 11:46:55 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include <ShrubberyCreationForm.hpp>
 
-#include <AForm.hpp>
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("Shrubbery", 145, 137) {
+	std::cout << "Shrubbery: Default constructor called" << std::endl;
+}
 
-class ShrubberyCreationForm : public AForm
-{
-	public:
-		ShrubberyCreationForm( void );
-		ShrubberyCreationForm( std::string target );
-		~ShrubberyCreationForm( void );
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("Shrubbery", 145, 137) {
+	std::cout << "Shrubbery: Default constructor called" << std::endl;
+}
 
-	private:
-		std::string _target;
-};
+ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
+	std::cout << "Shrubbery: Destructor called" << std::endl;
+}
