@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:40:50 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 17:04:05 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/28 09:57:52 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,9 +118,9 @@ void	test_unequip()
 
 int main( void )
 {
-	// test_main();
+	test_main();
 	// test_verys_learnMateria();
 	// not_learnMateria();
 	// test_verys_equi();
-	test_unequip();
+	// test_unequip();
 }

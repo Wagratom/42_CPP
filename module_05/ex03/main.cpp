@@ -5,37 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 14:01:20 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/28 09:55:20 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/28 09:45:57 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Cat.hpp>
-#include <Dog.hpp>
+#include <Bureaucrat.hpp>
+#include <Intern.hpp>
 
-void	my_test( void );
-void	ideas_cat( void );
-void	ideas_dog( void );
-
-void	test_main( void )
+int	main ( void )
 {
-	std::cout << "\t Test main" << std::endl;
+	Intern		someRandomIntern;
+	AForm*		rrf;
+	Bureaucrat	*junin;
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	// "presidential pardon"
+	// "shrubbery creation"
+	try {
+		junin = new Bureaucrat("junin", 1);
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
-	std::cout << std::endl;
-
-	delete j;//should not create a leak
-	delete i;
-	std::cout << std::endl;
-}
-
-int main()
-{
-	test_main();
-	// my_test();
-	// ideas_cat();
-	// ideas_dog();
-	return 0;
+		std::cout << std::endl;
+		rrf->beSigned(*junin);
+		junin->signForm(*rrf);
+		junin->executeForm(*rrf);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	delete junin;
+	delete rrf;
+	return (0);
 }

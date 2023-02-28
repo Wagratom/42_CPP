@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 12:27:28 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/28 09:50:52 by wwalas-          ###   ########.fr       */
+/*   Created: 2023/02/27 11:41:58 by wwalas-           #+#    #+#             */
+/*   Updated: 2023/02/27 16:55:25 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include <AForm.hpp>
+#include <stdlib.h>
 
-class Brain
+class RobotomyRequestForm : public AForm
 {
 	public:
-		Brain( void );
-		Brain( const Brain& obj );
-		~Brain( void );
+		RobotomyRequestForm( void );
+		RobotomyRequestForm( std::string target );
+		RobotomyRequestForm( const RobotomyRequestForm& obj );
+		~RobotomyRequestForm( void );
 
-		std::string*	getBrain();
+		void	execute(Bureaucrat const& executor) const;
 
-		Brain&	operator=(const Brain& obj);
+		RobotomyRequestForm&	operator=( const RobotomyRequestForm& old);
 
 	private:
-		std::string	_ideas[100]; // troca na hora de enviar
-};
+		std::string _target;
 
+};

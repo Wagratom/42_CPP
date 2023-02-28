@@ -22,8 +22,8 @@ class WrongAnimal
 		WrongAnimal( const WrongAnimal& obj );
 		~WrongAnimal( void );
 
-		void		makeSound( void ) const;
-		std::string	getType( void ) const;
+		void			makeSound( void ) const;
+		std::string		getType( void ) const;
 
 		WrongAnimal&	operator=(const WrongAnimal& obj);
 	protected:
