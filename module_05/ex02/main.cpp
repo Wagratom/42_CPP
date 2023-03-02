@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/02 11:52:13 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 11:57:11 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ int	main ( void )
 {
 	// test_Presidential();
 	// test_Robotomy();
-	// test_Shrubbery();
+	test_Shrubbery();
 	return (0);
 }
