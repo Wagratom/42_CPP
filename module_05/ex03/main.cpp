@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/02 12:14:35 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 12:51:54 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main ( void )
 	// "shrubbery creation"
 	try {
 		junin = new Bureaucrat("junin", 1);
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 
 		std::cout << std::endl;
 		junin->signForm(*rrf);

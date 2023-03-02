@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:15 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/02 12:11:57 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 12:52:45 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ AForm*   Intern::create_PresidentialPardon( std::string target ) {
 }
 
 AForm*   Intern::create_RobotomyRequest( std::string target ) {
-	return (new PresidentialPardonForm(target));
+	return (new RobotomyRequestForm (target));
 }
 
 AForm*   Intern::create_ShrubberyCreation( std::string target ) {
-	return (new PresidentialPardonForm(target));
+	return (new ShrubberyCreationForm(target));
 }
 
 AForm*	Intern::makeForm( std::string name, std::string target)
@@ -71,6 +71,6 @@ AForm*	Intern::makeForm( std::string name, std::string target)
 
 Intern&	Intern::operator=( const Intern& obj)
 {
-	*this = obj;
+	(void)obj;
 	return (*this);
 }
