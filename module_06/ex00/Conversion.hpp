@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:00:52 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/01 14:07:00 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 15:07:37 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,23 @@ class Conversion
 		void	Conversion_numbet_to_int( void );
 		void	Conversion_numbet_to_char( void );
 
-		void	write_fractional_numbers( void );
-		bool	is_float_science( float number );
+		bool	write_fractional_numbers( void );
+		bool	is_float_science( void );
 		void	Conversion_numbet_to_float( void );
 		void	Conversion_numbet_to_double( void );
 		void	run_conversion( void );
 
 		void	is_science_number( void );
 
+		bool	check_convertion_to_integer( void );
+
 
 		Conversion&	operator=( const Conversion& obj);
 
 	protected:
 		std::string	_number;
-		std::string	_integer;
+		int			_nInteger;
+		float		_nFloat;
 		bool		_has_science;
 };
 

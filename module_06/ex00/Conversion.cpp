@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:00:41 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/01 14:13:29 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 15:34:29 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ Conversion::Conversion( void ) {
 }
 
 Conversion::Conversion( std::string number )
-: _number(number), _integer(""), _has_science(false) {
+: _number(number), _nInteger(0), _has_science(false) {
 	std::cout << "Default constructor called" << std::endl;
 	is_science_number();
 }
 
 Conversion::Conversion( const Conversion& obj )
-: _number(obj._number), _integer(obj._integer), _has_science(obj._has_science) {
+: _number(obj._number), _nInteger(obj._nInteger), _has_science(obj._has_science) {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -68,24 +68,41 @@ bool	Conversion::valid_number( void )
 }
 
 /******************************************************************************/
-/*                               Convert Char                                 */
+/*                      Check Convertion To Integer                           */
 /******************************************************************************/
 
+bool	check_overflow( std::string number)
+{
+	if (std::atol(number.c_str()) > 2147483647)
+		return (true);
+	if (std::atol(number.c_str()) < -2147483648)
+		return (true);
+	else
+		return (false);
+}
+
+bool	Conversion::check_convertion_to_integer( void )
+{
+	if (this->_has_science)
+		return (false);
+	if (check_overflow(this->_number))
+		return (false);
+	this->_nInteger = std::strtol(this->_number.c_str(), NULL, 10);
+	return (true);
+}
+
+/******************************************************************************/
+/*                               Convert char                                  */
+/******************************************************************************/
 void	Conversion::Conversion_numbet_to_char( void )
 {
-	int		value;
-	char	*endptr;
 
-	if (this->_has_science)
-		std::cout << "char: impossible" << std::endl;
+	if (!check_convertion_to_integer())
+		std::cout << "char: Non displayable" << std::endl;
+	else if (this->_nInteger < 32 || this->_nInteger >= 127)
+		std::cout << "char: Non displayable" << std::endl;
 	else
-	{
-		value = std::strtol(this->_number.c_str(), &endptr, 10);
-		if (value < 32 || value >= 127)
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: " << (char)value << std::endl;
-	}
+		std::cout << "char: " << (char)this->_nInteger << std::endl;
 }
 
 /******************************************************************************/
@@ -94,59 +111,49 @@ void	Conversion::Conversion_numbet_to_char( void )
 
 void	Conversion::Conversion_numbet_to_int( void )
 {
-	int		value;
-	char	*endptr;
-
-	if (this->_has_science)
-		std::cout << "char: impossible" << std::endl;
+	if (!check_convertion_to_integer())
+		std::cout << "int: impossible" << std::endl;
 	else
-	{
-		errno = 0;
-		value = std::strtol(this->_number.c_str(), &endptr, 10);
-		std::cout << errno << "esse " << endptr << std::endl;
-		if (errno == ERANGE)
-			std::cout << "teste: impossible" << std::endl;
-		std::cout << "int: " << value << std::endl;
-	}
+		std::cout << "int: " << this->_nInteger << std::endl;
 }
 
 /******************************************************************************/
 /*                               Convert float                                */
 /******************************************************************************/
 
-bool Conversion::is_float_science( float number )
+bool Conversion::is_float_science( void )
 {
-	if (std::isnan(number))
+	if (std::isnan(this->_nFloat))
 		std::cout << "nan";
-	else if (std::isinf(number))
+	else if (std::isinf(this->_nFloat))
 		std::cout << "inf";
 	else
 		return (false);
 	return (true);
 }
 
-void	Conversion::write_fractional_numbers( void )
+bool	Conversion::write_fractional_numbers( void )
 {
-	float	value;
-
-	value = std::atof(this->_number.c_str());
-	if (is_float_science(value))
-		return ;
-	value = std::atof(this->_number.c_str());
-	std::cout << value;
+	this->_nFloat = std::atof(this->_number.c_str());
+	if (is_float_science())
+		return (false);
+	this->_nFloat = std::atof(this->_number.c_str());
+	return (true);
 }
 
 void	Conversion::Conversion_numbet_to_float( void )
 {
 	std::cout << "float: ";
-	write_fractional_numbers();
+	if (write_fractional_numbers())
+		std::cout << this->_nFloat;
 	std::cout << "f" << std::endl;
 }
 
 void	Conversion::Conversion_numbet_to_double( void )
 {
 	std::cout << "double: ";
-	write_fractional_numbers();
+	if (write_fractional_numbers())
+		std::cout << static_cast<double>(this->_nFloat);
 	std::cout << std::endl;
 }
 
@@ -163,6 +170,6 @@ void	Conversion::run_conversion( void )
 Conversion&	Conversion::operator=( const Conversion& obj)
 {
 	_number = obj._number;
-	_integer = obj._integer;
+	_nInteger = obj._nInteger;
 	return (*this);
 }
