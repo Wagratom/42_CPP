@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 10:00:49 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 10:55:30 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	test_grade_less( void )
 {
-	std::cout << "\t Test grid less than zero " << std::endl;
+	std::cout << "\t Test grid Higth than zero " << std::endl;
 
 	try {
 		Bureaucrat("Bureaucrat1", 0);

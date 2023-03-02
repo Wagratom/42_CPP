@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 18:11:14 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 10:55:01 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	Bureaucrat::increment( void )
 void	Bureaucrat::decrement( void )
 {
 	if (_grade + 1 > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade  += 1;
 }
 
