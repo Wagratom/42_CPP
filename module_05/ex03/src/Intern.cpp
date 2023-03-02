@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:15 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 19:35:57 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 12:11:57 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ Intern::Intern( void ) {
 	std::cout << "Intern: Default construcotr called" << std::endl;
 }
 
+Intern::Intern( const Intern& obj ) {
+	std::cout << "Intern: Copy construcotr called" << std::endl;
+	*this = obj;
+}
 Intern::~Intern( void ) {
 	std::cout << "Intern: Destructor called" << std::endl;
 }
@@ -57,10 +61,16 @@ AForm*	Intern::makeForm( std::string name, std::string target)
 	{
 		if (dic[iterator].name == name)
 		{
-			std::cout << "Intern creates \n\n" << target << std::endl;
+			std::cout << "Intern creates " << target << std::endl;
 			return ((this->*dic[iterator].func)(target));
 		}
 	}
 	throw	exceptionForm();
 	return (NULL);
+}
+
+Intern&	Intern::operator=( const Intern& obj)
+{
+	*this = obj;
+	return (*this);
 }

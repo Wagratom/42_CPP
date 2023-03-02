@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:15 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 19:25:53 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 12:09:33 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Intern
 				char const* what() const throw();
 		};
 		Intern( void );
+		Intern( const Intern& obj );
 		~Intern( void );
 
 		t_dictionary*	create_dictionary();
@@ -43,5 +44,6 @@ class Intern
 
 		AForm*	makeForm( std::string name, std::string target);
 
+		Intern&	operator=( const Intern& obj);
 };
 

@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/28 09:45:57 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 12:14:35 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main ( void )
 {
 	Intern		someRandomIntern;
 	AForm*		rrf;
-	Bureaucrat	*junin;
+	Bureaucrat*	junin;
 
 	// "presidential pardon"
 	// "shrubbery creation"
@@ -26,7 +26,6 @@ int	main ( void )
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
 		std::cout << std::endl;
-		rrf->beSigned(*junin);
 		junin->signForm(*rrf);
 		junin->executeForm(*rrf);
 	} catch (std::exception &e) {

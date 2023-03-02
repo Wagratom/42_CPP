@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 11:40:45 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 17:08:11 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 12:11:05 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,15 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+	static bool	seeded = false;
+
 	if (!this->getSigned() || executor.getGrade() > this->getGradeExecute())
 		throw GradeTooLowException();
-	srand(time(NULL));
+	if (seeded == false)
+	{
+		srand(time(NULL));
+		seeded = true;
+	}
 	std::cout << "Vruumm Vruumm" << std::endl;
 	if (rand() % 2 == 0)
 		std::cout << this->_target <<  " has been robotomized. " << std::endl;

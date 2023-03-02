@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/27 17:04:55 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 11:59:29 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,25 @@ void	Bureaucrat::increment( void )
 void	Bureaucrat::decrement( void )
 {
 	if (_grade + 1 > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade  += 1;
 }
 
-void	Bureaucrat::signForm( const AForm& form )
+void	Bureaucrat::signForm( AForm& form )
 {
 	if (!form.getSigned())
 	{
-		std::cout << this->getName() << " couldn’t sign " << form.getName();
-		std::cout << " the grade is too low " << std::endl;
+		try {
+			form.beSigned(*this);
+			std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		} catch (std::exception& e)
+		{
+			std::cout << this->getName() << " couldn’t sign " << form.getName();
+			std::cout << " the grade is too low " << std::endl;
+		}
 	}
 	else
-		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		std::cout << "form is already signed" << std::endl;
 }
 
 void	Bureaucrat::executeForm(AForm const& form)
