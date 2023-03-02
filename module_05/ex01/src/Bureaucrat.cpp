@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:18:30 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 18:14:32 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 11:40:41 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	Bureaucrat::increment( void )
 void	Bureaucrat::decrement( void )
 {
 	if (_grade + 1 > 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade  += 1;
 }
 
@@ -70,12 +70,18 @@ std::ostream&	operator<<(std::ostream& old, const Bureaucrat& obj)
 	return (old);
 }
 
-void	Bureaucrat::signForm( const Form& form )
+void	Bureaucrat::signForm( Form& form )
 {
 	if (!form.getSigned())
 	{
-		std::cout << this->getName() << " couldn’t sign " << form.getName();
-		std::cout << " the grade is too low " << std::endl;
+		try {
+			form.beSigned(*this);
+			std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		} catch ( std::exception &e )
+		{
+			std::cout << this->getName() << " couldn’t sign " << form.getName();
+			std::cout << " the grade is too low " << std::endl;
+		}
 	}
 	else
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;

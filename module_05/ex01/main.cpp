@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:29:45 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/26 17:51:48 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/02 11:38:09 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	test_grade_less( void )
 {
-	std::cout << "\t Test grid less than zero " << std::endl;
+	std::cout << "\t Test grid high than zero " << std::endl;
 
 	try {
 		Form("Form1", 0, 10);
@@ -55,9 +55,9 @@ void	test_grade_valid( void )
 		Form		teacher("teacher", 5, 10);
 		Bureaucrat	cleitin("cleitin", 5);
 
+		std::cout << std::endl;
 		std::cout << teacher << std::endl;
 		std::cout << cleitin << std::endl;
-		teacher.beSigned(cleitin);
 		cleitin.signForm(teacher);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
@@ -70,12 +70,13 @@ void	test_grade_valid( void )
 	try {
 		One = new Form("ReiDosPirata", 1, 10);
 		Shanks = new Bureaucrat("Shanks", 2);
+
+		std::cout << std::endl;
 		std::cout << *One << std::endl;
 		std::cout << *Shanks << std::endl;
-		One->beSigned(*Shanks);
+		Shanks->signForm(*One);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
-		Shanks->signForm(*One);
 	}
 	delete One;
 	delete Shanks;
@@ -83,8 +84,8 @@ void	test_grade_valid( void )
 
 int	main ( void )
 {
-	test_grade_less();
-	test_grade_very();
+	// test_grade_less();
+	// test_grade_very();
 	test_grade_valid();
 
 	return (0);
