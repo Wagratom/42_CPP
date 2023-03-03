@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:28:59 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/02/25 19:38:10 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/02/28 14:56:43 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 && idx > 3)
+	if (idx < 0 || idx > 3)
 		std::cout << "Invalid index uneqquipped" << std::endl;
 	else if (this->inventory[idx] == NULL)
 		std::cout << "Invalid Slot uneqquipped: slot is null" << std::endl;
