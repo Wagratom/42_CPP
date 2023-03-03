@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:00:41 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/02 15:34:29 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/03 09:16:16 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,11 @@ bool	Conversion::valid_number( void )
 
 bool	check_overflow( std::string number)
 {
-	if (std::atol(number.c_str()) > 2147483647)
+	static long int number_long = std::atol(number.c_str());
+
+	if (number_long > 2147483647)
 		return (true);
-	if (std::atol(number.c_str()) < -2147483648)
+	if (number_long < -2147483648)
 		return (true);
 	else
 		return (false);
@@ -97,12 +99,14 @@ bool	Conversion::check_convertion_to_integer( void )
 void	Conversion::Conversion_numbet_to_char( void )
 {
 
-	if (!check_convertion_to_integer())
+	if (check_overflow(this->_number))
+		std::cout << "char: impossible" << std::endl;
+	else if (!check_convertion_to_integer())
 		std::cout << "char: Non displayable" << std::endl;
 	else if (this->_nInteger < 32 || this->_nInteger >= 127)
 		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: " << (char)this->_nInteger << std::endl;
+		std::cout << "char: " << static_cast<char>(this->_nInteger) << std::endl;
 }
 
 /******************************************************************************/
@@ -114,14 +118,14 @@ void	Conversion::Conversion_numbet_to_int( void )
 	if (!check_convertion_to_integer())
 		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout << "int: " << this->_nInteger << std::endl;
+		std::cout << "int: " << static_cast<int>(this->_nInteger) << std::endl;
 }
 
 /******************************************************************************/
 /*                               Convert float                                */
 /******************************************************************************/
 
-bool Conversion::is_float_science( void )
+bool Conversion::write_science( void )
 {
 	if (std::isnan(this->_nFloat))
 		std::cout << "nan";
@@ -132,28 +136,63 @@ bool Conversion::is_float_science( void )
 	return (true);
 }
 
-bool	Conversion::write_fractional_numbers( void )
+bool	Conversion::convert_fractional_numbers( void )
 {
 	this->_nFloat = std::atof(this->_number.c_str());
-	if (is_float_science())
+	if (write_science())
 		return (false);
 	this->_nFloat = std::atof(this->_number.c_str());
 	return (true);
 }
 
-void	Conversion::Conversion_numbet_to_float( void )
+
+/******************************************************************************/
+/*                           need to print zero                               */
+/******************************************************************************/
+
+bool	need_to_print_zero( bool is_science, std::string number)
+{
+	const __SIZE_TYPE__	pointer = number.find('.');
+
+	if (is_science)
+		return (false);
+	if (pointer == std::string::npos)
+		return (true);
+	if (number.size() - pointer == 1)
+		return (true);
+	std::string aux = number.substr((pointer + 1), number.size());
+	for (size_t i = 0; i < aux.size(); i++)
+	{
+		if (aux[i] != '0' && aux[i] != 'f')
+			return (false);
+	}
+	return (true);
+}
+
+/******************************************************************************/
+/*                               Convert float                                */
+/******************************************************************************/
+void	Conversion::Conversion_number_to_float( void )
 {
 	std::cout << "float: ";
-	if (write_fractional_numbers())
-		std::cout << this->_nFloat;
+	if (convert_fractional_numbers())
+		std::cout << static_cast<float>(this->_nFloat);
+	if (need_to_print_zero(this->_has_science, this->_number))
+		std::cout << ".0";
 	std::cout << "f" << std::endl;
 }
 
-void	Conversion::Conversion_numbet_to_double( void )
+/******************************************************************************/
+/*                             Convert double                                 */
+/******************************************************************************/
+
+void	Conversion::Conversion_number_to_double( void )
 {
 	std::cout << "double: ";
-	if (write_fractional_numbers())
+	if (convert_fractional_numbers())
 		std::cout << static_cast<double>(this->_nFloat);
+	if (need_to_print_zero(this->_has_science, this->_number))
+		std::cout << ".0";
 	std::cout << std::endl;
 }
 
@@ -163,8 +202,8 @@ void	Conversion::run_conversion( void )
 		return ;
 	Conversion_numbet_to_char();
 	Conversion_numbet_to_int();
-	Conversion_numbet_to_float();
-	Conversion_numbet_to_double();
+	Conversion_number_to_float();
+	Conversion_number_to_double();
 }
 
 Conversion&	Conversion::operator=( const Conversion& obj)
