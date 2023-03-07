@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 10:20:15 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/06 12:42:52 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/06 21:28:53 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,45 @@
 
 void	test_pdf( void )
 {
-	Span sp = Span(5);
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	Span array = Span(5);
+
+	array.addNumber(6);
+	array.addNumber(3);
+	array.addNumber(17);
+	array.addNumber(9);
+	array.addNumber(11);
+	std::cout << array.shortestSpan() << std::endl;
+	std::cout << array.longestSpan() << std::endl;
 }
 
+#include <list>
 void	test_invalid_size( void )
 {
-	Span sp = Span(1);
-	sp.addNumber(11);
-	sp.addNumber(11);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	Span array = Span(1);
+
+	array.addNumber(11);
+	array.addNumber(11);
+	std::cout << array.shortestSpan() << std::endl;
+	std::cout << array.longestSpan() << std::endl;
+}
+
+void	test_addRane( void )
+{
+	std::vector<int> aux(10);
+	for (int i = 0; i < 10; i++) {
+		aux[i] = (i+ 1);
+	}
+	Span array = Span(10);
+	array.addRange(aux.begin(), aux.end());
+	for (int i = 0; i < 10; i++) {
+		std::cout << aux[i];
+	}
+	std::cout << std::endl;
 }
 
 int	main( void )
 {
-	test_pdf();
+	// test_pdf();
 	// test_invalid_size();
+	test_addRane();
 }
