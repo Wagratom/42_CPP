@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 10:20:15 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/06 21:28:53 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/06 21:41:26 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	test_addRane( void )
 
 int	main( void )
 {
-	// test_pdf();
+	test_pdf();
 	// test_invalid_size();
-	test_addRane();
+	// test_addRane();
 }
