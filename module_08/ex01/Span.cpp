@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 09:41:19 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/06 21:05:51 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/08 10:04:07 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,9 @@ void	Span::addRange(std::vector<int>::iterator init, std::vector<int>::iterator 
 	try {
 		while (init != end)
 		{
-			if ((this->_index)++ >= this->_size)
+			if (this->_index >= this->_size)
 				throw std::out_of_range("Error: while initializing all numbers in range");
-			this->_vector[_index] = (*init);
-			init++;
-			_index += 1;
+			addNumber(*init++);
 		}
 	} catch (std::out_of_range& e) {
 		std::cout << e.what() << std::endl;
