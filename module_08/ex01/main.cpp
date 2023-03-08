@@ -6,7 +6,7 @@
 /*   By: wwalas- <wwallas-@student.42sp.org.br>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 10:20:15 by wwalas-           #+#    #+#             */
-/*   Updated: 2023/03/08 09:25:25 by wwalas-          ###   ########.fr       */
+/*   Updated: 2023/03/08 12:55:38 by wwalas-          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ void	test_addRane( void )
 	for (int i = 0; i < 10; i++) {
 		aux[i] = (i+ 1);
 	}
-	Span array = Span(11);
+	Span array = Span(10);
 	array.addRange(aux.begin(), aux.end());
 	for (int i = 0; i < 10; i++) {
-		std::cout << aux[i];
+		std::cout << array[i];
 	}
 	std::cout << std::endl;
 }
 
 int	main( void )
 {
-	// test_pdf();
+	test_pdf();
 	// test_invalid_size();
-	test_addRane();
+	// test_addRane();
 }
