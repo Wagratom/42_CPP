@@ -94,7 +94,7 @@ void	RPN::check_get_numbers( int& value1, int& value2)
 	value2 = _stack.top(); _stack.pop();
 }
 
-bool	RPN::resolve_operation(int op)
+bool	RPN::resolve_operation(char op)
 {
 	int	value1, value2;
 
@@ -112,22 +112,25 @@ bool	RPN::resolve_operation(int op)
 			}
 		}
 	}
+	std::cout << "Invalid operator \"" << op <<"\"" << std::endl;
 	return (false);
 }
 
-void	RPN::result_rpn( void )
+int	RPN::result_rpn( void )
 {
-	int	i = -1;
-	while(_expression[++i])
+	for (int i = 0; _expression[i]; i++)
 	{
+		if (_expression[i] == ' ')
+			i++;
 		if (isdigit(_expression[i]))
-			_stack.push(_expression[i++] - '0');
-		else
-		{
-			if (resolve_operation(_expression[i]) == false)
-				return ;
-		}
+			_stack.push(_expression[i] - '0');
+		else if (resolve_operation(_expression[i]) == false)
+			return (-1);
 	}
+	if (_stack.size() == 1)
+		return (_stack.top());
+	std::cout << "Invalid expression" << std::endl;
+	return (-1);
 }
 
 RPN& RPN::operator=( const RPN& rhs ) {

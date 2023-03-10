@@ -38,8 +38,8 @@ class RPN : public std::stack<int>
 		int			is_operator( char c);
 
 		void		check_get_numbers( int& value1, int& value2 );
-		bool		resolve_operation(int op);
-		void	result_rpn( void );
+		int			result_rpn( void );
+		bool		resolve_operation(char op);
 
 		RPN&	operator=( const RPN& rhs );
 
@@ -47,6 +47,7 @@ class RPN : public std::stack<int>
 		std::string		_expression;
 		std::stack<int>	_stack;
 		t_operators*	_operators;
+		int				result;
 };
 
 
