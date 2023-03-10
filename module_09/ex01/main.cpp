@@ -12,12 +12,15 @@
 
 #include <RPN.hpp>
 
-int main( void )
+void	test_invalid_expression( void )
 {
 	RPN rpn("a");
 	RPN rpn1("10a");
 	RPN rpn2("10.");
-	RPN rpn3("20+-*/");
-
+	RPN rpn3("2 0 +");
+}
+int main( void )
+{
+	test_invalid_expression();
 	return (0);
 }

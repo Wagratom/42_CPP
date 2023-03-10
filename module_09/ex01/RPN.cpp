@@ -12,36 +12,51 @@
 
 #include <RPN.hpp>
 
-
 /******************************************************************************/
-/*                          create data structure                             */
+/*                          auxiliary functions                               */
 /******************************************************************************/
 
-int	RPN::add(int a, int b)
-{
-	if (_stack.size())
-		return (false);
-	int	top = _stack.top(); _stack.pop();
-	int top2 = _stack.top(); _stack.pop();
+int	add(int a, int b) {
 	return (a + b);
 }
 
-int	RPN::subtract(int a, int b) {
+int	subtract(int a, int b) {
 	return (a - b);
 }
 
-int	RPN::multiply(int a, int b) {
+int	multiply(int a, int b) {
 	return (a * b);
 }
 
-int	RPN::divide(int a, int b) {
+int	divide(int a, int b)
+{
+	if (a == 0 || b == 0)
+		throw std::invalid_argument("division by zero is not allowed");
 	return (a / b);
 }
 
-RPN::RPN( void ) : _expression(""), _stack(){
+t_operators*	create_structure( void )
+{
+	static t_operators	operators[5] = {
+		{'+', add},
+		{'-', subtract},
+		{'*', multiply},
+		{'/', divide},
+		{0, NULL}
+	};
+	return (operators);
 }
 
-RPN::RPN( std::string expression ) : _expression(expression), _stack()
+/******************************************************************************/
+/*                        Constructors Destructors                            */
+/******************************************************************************/
+RPN::RPN( void ) : _expression(""), _stack(), _operators(NULL){
+}
+
+RPN::RPN( std::string expression ):
+		_expression(expression),
+		_stack(),
+		_operators(create_structure())
 {
 	try{
 		check_expression(_expression);
@@ -67,6 +82,39 @@ RPN::RPN( const RPN& src ) :
 RPN::~RPN( void ) {
 }
 
+/******************************************************************************/
+/*                             Functions members                              */
+/******************************************************************************/
+
+void	RPN::check_get_numbers( int& value1, int& value2)
+{
+	if (_stack.size() < 2)
+		throw	std::range_error("trying to perform an invalid operation");
+	value1 = _stack.top(); _stack.pop();
+	value2 = _stack.top(); _stack.pop();
+}
+
+bool	RPN::resolve_operation(int op)
+{
+	int	value1, value2;
+
+	for (int i = 0; _operators[i].op; i++)
+	{
+		if (op == _operators[i].op)
+		{
+			try{
+				check_get_numbers(value1, value2);
+				_stack.push(_operators[i].f(value1, value2));
+				return (true);
+			} catch(std::exception& e) {
+				std::cout << e.what() << std::endl;
+				return (false);
+			}
+		}
+	}
+	return (false);
+}
+
 void	RPN::result_rpn( void )
 {
 	int	i = -1;
@@ -74,20 +122,10 @@ void	RPN::result_rpn( void )
 	{
 		if (isdigit(_expression[i]))
 			_stack.push(_expression[i++] - '0');
-		else if (_stack.size())
-			throw	std::range_error()
-		switch (is_operator(_expression[i]))
+		else
 		{
-		case 0: {
-			_stack.push(add(top, top2));
-			break ;
-		}
-		case 1: {
-			_stack.push(subtract(top, top2));
-			break ;
-		}
-		default:
-			break;
+			if (resolve_operation(_expression[i]) == false)
+				return ;
 		}
 	}
 }

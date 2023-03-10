@@ -12,7 +12,7 @@
 
 NAME		=	rpn
 
-SOURCES		=	main.cpp RPN.cpp create_list.cpp check_expression.cpp
+SOURCES		=	main.cpp RPN.cpp  check_expression.cpp
 
 OBJ		=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 OBJ_DIR	=	objs

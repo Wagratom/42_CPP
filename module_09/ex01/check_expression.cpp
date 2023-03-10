@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_parameters.cpp                               :+:      :+:    :+:   */
+/*   check_expression.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:19:26 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/10 13:03:01 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:52:13 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <RPN.hpp>
 
-int	is_operator( char c )
+int	RPN::is_operator( char c )
 {
-	return (strchr("+-*/", c));
+	for (int i = 0; _operators[i].op; i++)
+	{
+		if (_operators[i].op == c)
+			return (i);
+	}
+	return (-1);
 }
 
-void	check_expression( std::string expression )
+void	RPN::is_valid_char( char c, bool is_spaces)
 {
-	int	i = -1;
+	if (is_spaces && c != ' ')
+		throw std::invalid_argument("Invalid spaces in expression");
+	if (is_spaces)
+		return ;
+	if (!isdigit(c) && is_operator(c) == -1)
+		throw std::invalid_argument("Value in expression is not a digit");
+}
 
-	while (expression[++i])
-	{
-		if (isdigit(expression[i]) && expression[i + 1] == ' ')
-			continue ;
-		if (is_operator(expression[i]) != -1);
-			continue ;
-		throw std::invalid_argument("Invalid expression");
+bool	RPN::check_expression( std::string expression )
+{
+	for (int i = 0; expression[i]; i++) {
+		is_valid_char(_expression[i], (i % 2 != 0));
 	}
+	return (true);
 }
