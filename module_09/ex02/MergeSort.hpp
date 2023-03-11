@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:48 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/11 18:36:27 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:46:33 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 #include <vector>
 #include <cstdlib>
 
-class MergeSort : public std::vector<int>
+class MergeSort
 {
 	public:
 		MergeSort( void );
 		~MergeSort( void );
 
 		void	add_number( char *argv[] );
+		int		size( void ) const;
+		void	print_vector( void );
 
 		int&	operator[](unsigned int index);
 	private:
-	std::vector<int>	_vector;
+		std::vector<int>	_vector;
 };
 
 #define INT_MAX 2147483647

@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:48 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/11 18:38:21 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:49:47 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,24 @@ int	convert_in_integer( std::string number)
 	return (result);
 }
 
-std::string	get_number_str(std::string range, bool &end)
+std::string	get_number_str(std::string range)
 {
-	std::string	number_str;
 	int			space;
 
 	space = range.find(' ');
 	if (space != (int)std::string::npos)
-		number_str = range.substr(0, space);
-	else
-	{
-		number_str = range.substr(0, range.size());
-		end = true;
-	}
-	return (number_str);
+		return (range.substr(0, space));
+	return (range.substr(0, range.size()));
 }
 
 void	MergeSort::add_number( char *argv[] )
 {
 	std::string	number_str;
 	int			number;
-	bool		end;
 
-	end = false;
 	for (int i = 0; argv[i]; i++)
 	{
-		number_str = get_number_str(argv[i], end);
-		std::cout << "number_str" << number_str << std::endl;
+		number_str = get_number_str(argv[i]);
 		number = convert_in_integer(number_str);
 		_vector.push_back(number);
 	}
@@ -64,9 +55,22 @@ MergeSort::MergeSort( void ) : _vector(){
 MergeSort::~MergeSort( void ) {
 }
 
+int MergeSort::size( void ) const {
+	return (_vector.size());
+}
+
 int&	MergeSort::operator[](unsigned int index)
 {
 	if (index >= _vector.size())
 		throw std::out_of_range("Index out of range");
 	return (_vector[index]);
 }
+
+void	MergeSort::print_vector( void )
+{
+	for (int i = 0; i < size(); i++) {
+		std::cout << "Vector [" << i << "] = " << _vector[i] << std::endl;
+	}
+}
+
+
