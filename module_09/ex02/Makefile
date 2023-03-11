@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	rpn
+NAME		=	megasort
 
-SOURCES		=	main.cpp RPN.cpp  check_expression.cpp
+SOURCES		=	main.cpp MergeSort.cpp
 
 OBJ		=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 OBJ_DIR	=	objs

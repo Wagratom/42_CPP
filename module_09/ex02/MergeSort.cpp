@@ -6,52 +6,67 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:48 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/11 16:06:53 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:38:21 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <MergeSort.hpp>
 
-int	get_number( std::string number)
+int	convert_in_integer( std::string number)
 {
-	long int = number_long = std::atol(number.c_str());
+	long int	result;
 
-	if (number_long > INT_MAX || number_long < INT_MIN)
-		throw std::overflow_error("Overflow in expression");
-	return (number_long);
-}
-
-int	get_number(std::string range, int &spaces)
-{
-	long int number;
-	std::string number_str;
-
-	spaces = range.find(' ');
-	number_str = range.substr(0, spaces);
-	number = get_number(number_str);
-	return (number);
-}
-
-bool	check_parameters( std::string range )
-{
-	int	spaces;
-	int number;
-	std::string number_str;
-
-	for (int i = 0; range[i]; i++)
-	{
-		spaces = range.find(' ');
-		number_str = range.substr(0, spaces);
-		number = std::stoi(number_str);
-		if (!isdigit(range[i]))
+	for (int i = 0; number[i] != '\0'; i++) {
+		if (!isdigit(number[i]))
 			throw std::invalid_argument("Value in expression is not a digit");
 	}
-}
-MergeSort::MergeSort( void ) {
+	result = std::atol(number.c_str());
+	if (result > INT_MAX || result < INT_MIN)
+		throw std::overflow_error("Overflow in expression");
+	return (result);
 }
 
-MergeSort::MergeSort( std::string range ) {
+std::string	get_number_str(std::string range, bool &end)
+{
+	std::string	number_str;
+	int			space;
+
+	space = range.find(' ');
+	if (space != (int)std::string::npos)
+		number_str = range.substr(0, space);
+	else
+	{
+		number_str = range.substr(0, range.size());
+		end = true;
+	}
+	return (number_str);
+}
+
+void	MergeSort::add_number( char *argv[] )
+{
+	std::string	number_str;
+	int			number;
+	bool		end;
+
+	end = false;
+	for (int i = 0; argv[i]; i++)
+	{
+		number_str = get_number_str(argv[i], end);
+		std::cout << "number_str" << number_str << std::endl;
+		number = convert_in_integer(number_str);
+		_vector.push_back(number);
+	}
+}
+
+MergeSort::MergeSort( void ) : _vector(){
 }
 
 MergeSort::~MergeSort( void ) {
+}
+
+int&	MergeSort::operator[](unsigned int index)
+{
+	if (index >= _vector.size())
+		throw std::out_of_range("Index out of range");
+	return (_vector[index]);
 }
