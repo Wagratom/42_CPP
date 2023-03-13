@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:48 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/12 12:03:31 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:23:49 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class MergeSort
 		void	print_vector( void );
 
 		void	orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std::vector<int>& endArray );
-		void	write_in_endArray( std::vector<int>& endArray, int menor, int more);
 		void	sort( std::vector<int>& endArray);
 
 		void	numbers_left(std::vector<int>& endArray, std::vector<int> array, int index);

@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:48 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/12 13:58:42 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:35:31 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,6 @@ void	fill_arrays( std::vector<int>& aux1, std::vector<int>& aux2, std::vector<in
 	}
 }
 
-void	MergeSort::write_in_endArray( std::vector<int>& endArray, int menor, int more)
-{
-	endArray[_index] = menor;
-	endArray[_index + 1] = more;
-	_index += 2;
-}
-
 void	MergeSort::numbers_left(std::vector<int>& endArray, std::vector<int> array, int index)
 {
 	if (index >= (int)array.size())
@@ -114,7 +107,6 @@ void	MergeSort::orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std
 	int index2 = 0;
 	_index = 0;
 
-	std::cout << "in orde array" << std::endl;
 	while (index1 < (int)aux1.size() && index2 < (int)aux2.size())
 	{
 		if (aux1[index1] < aux2[index2])
