@@ -6,11 +6,11 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:25 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/12 10:57:38 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:12:31 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MergeSort.hpp>
+#include <PmergeMe.hpp>
 
 void	check_arguments(int argc, char **argv)
 {
@@ -22,11 +22,10 @@ void	check_arguments(int argc, char **argv)
 
 void	sort_array(char *argv[])
 {
-	MergeSort	merge_sort;
 	try {
-		merge_sort.add_number(&argv[1]);
-		merge_sort.merge_sort();
-		merge_sort.print_vector();
+		PmergeMe	PmergeMe(&argv[1]);
+		PmergeMe.merge_sort();
+		std::cout << "After:  " << PmergeMe << std::endl;
 	} catch (std::invalid_argument &e) {
 		std::cerr << e.what() << std::endl;
 	}

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MergeSort.cpp                                      :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 15:24:48 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/12 14:35:31 by wwallas-         ###   ########.fr       */
+/*   Created: 2023/03/14 14:08:45 by wwallas-          #+#    #+#             */
+/*   Updated: 2023/03/14 14:08:47 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <MergeSort.hpp>
+#include <PmergeMe.hpp>
 
-MergeSort::MergeSort( void ) : _vector(), _index(0){
+PmergeMe::PmergeMe( void ) : _vector(), _index(0){
 }
 
-MergeSort::~MergeSort( void ) {
+PmergeMe::PmergeMe( char *argv[] ) : _vector(), _index(0){
+	add_number(argv);
+}
+
+PmergeMe::PmergeMe( const PmergeMe& obj ) {
+	*this = obj;
+}
+
+PmergeMe::~PmergeMe( void ) {
 }
 
 /******************************************************************************/
@@ -60,7 +68,7 @@ std::string	get_number_str(std::string range)
 	return (range.substr(0, range.size()));
 }
 
-void	MergeSort::add_number( char *argv[] )
+void	PmergeMe::add_number( char *argv[] )
 {
 	std::string	number_str;
 	int			number;
@@ -93,7 +101,7 @@ void	fill_arrays( std::vector<int>& aux1, std::vector<int>& aux2, std::vector<in
 	}
 }
 
-void	MergeSort::numbers_left(std::vector<int>& endArray, std::vector<int> array, int index)
+void	PmergeMe::numbers_left(std::vector<int>& endArray, std::vector<int> array, int index)
 {
 	if (index >= (int)array.size())
 		return ;
@@ -101,7 +109,7 @@ void	MergeSort::numbers_left(std::vector<int>& endArray, std::vector<int> array,
 		endArray[_index++] = array[i];
 }
 
-void	MergeSort::orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std::vector<int>& endArray )
+void	PmergeMe::orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std::vector<int>& endArray )
 {
 	int	index1 = 0;
 	int index2 = 0;
@@ -125,7 +133,7 @@ void	MergeSort::orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std
 	numbers_left(endArray, aux2, index2);
 }
 
-void	MergeSort::sort( std::vector<int>& endArray)
+void	PmergeMe::sort( std::vector<int>& endArray)
 {
 	if (endArray.size() == 1)
 		return ;
@@ -138,29 +146,35 @@ void	MergeSort::sort( std::vector<int>& endArray)
 	orde_endArray(aux1, aux2, endArray);
 }
 
-void	MergeSort::merge_sort( void )
+void	PmergeMe::merge_sort( void )
 {
 	sort(_vector);
 }
 
-int MergeSort::size( void ) const {
+int PmergeMe::size( void ) const {
 	return (_vector.size());
 }
 
-int&	MergeSort::operator[](unsigned int index)
+int&	PmergeMe::operator[](unsigned int index)
 {
 	if (index >= _vector.size())
 		throw std::out_of_range("Index out of range");
 	return (_vector[index]);
 }
 
-void	MergeSort::print_vector( void )
+PmergeMe&	PmergeMe::operator=(const PmergeMe& obj)
 {
-	for (int i = 0; i < size(); i++) {
-		std::cout << "Vector [" << i << "] = " << _vector[i] << std::endl;
-	}
+	_vector = std::vector<int>(obj._vector);
+	_index = obj._index;
+	return (*this);
 }
 
+std::ostream&	operator<<(std::ostream& os, PmergeMe& obj)
+{
+	for (int i = 0; i < (int)obj.size(); i++)
+		os << obj[i] << " ";
+	return (os);
+}
 /******************************************************************************/
 /*                           functions auxiliares                             */
 /******************************************************************************/

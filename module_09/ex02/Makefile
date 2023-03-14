@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megasort
+NAME		=	PmergeMe
 
-SOURCES		=	main.cpp MergeSort.cpp
+SOURCES		=	main.cpp PmergeMe.cpp
 
 OBJ		=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 OBJ_DIR	=	objs
