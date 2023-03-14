@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:45 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 14:08:47 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:25:25 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	is_digit_or_throw( std::string number )
 	for (int i = 0; number[i] != '\0'; i++)
 	{
 		if (!isdigit(number[i]))
-			throw std::invalid_argument("Value in expression is not a digit");
+			throw std::invalid_argument("Error");
 	}
 }
 

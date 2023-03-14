@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:24 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 14:25:36 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:17:15 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <iomanip>
 #include <sys/time.h>
 
 
@@ -50,9 +51,3 @@ void	visualize_endArray(std::vector<int> endArray);
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
-
-int		*time_init(void);
-void	set_time_init(int time);
-int		get_time_init(void);
-int		time_start(void);
-int		get_time(void);
