@@ -10,8 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	bitcoin
-
+NAME		=	btc
 SOURCES		=	main.cpp BitcoinExchange.cpp
 
 OBJ		=	$(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))

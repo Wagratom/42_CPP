@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:45:15 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 16:43:53 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:12:51 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int	main( int argc, char *argv[])
 
 	BitcoinExchange	exchange;
 	exchange.create_map();
+	exchange.open_input(argv[1]);
 	return (0);
 }
