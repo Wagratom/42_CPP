@@ -6,13 +6,17 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:55:50 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 14:55:02 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:09:44 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <BitcoinExchange.hpp>
 
 BitcoinExchange::BitcoinExchange( void ) {
+}
+
+BitcoinExchange::BitcoinExchange( const BitcoinExchange& src ) {
+	*this = src;
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {
@@ -183,4 +187,15 @@ void	BitcoinExchange::print_formated(char *name)
 		if (get_valid_key(line))
 			print_value(line);
 	}
+}
+
+BitcoinExchange&	BitcoinExchange::operator=( const BitcoinExchange& rhs )
+{
+	if (this != &rhs)
+	{
+		_DataBase = rhs._DataBase;
+		_it = rhs._it;
+		_key = rhs._key;
+	}
+	return (*this);
 }

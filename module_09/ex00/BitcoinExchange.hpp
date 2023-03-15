@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:56:07 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 14:18:33 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:09:23 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 
 class BitcoinExchange
 {
-	private:
-		std::ifstream									_input;
-		std::map< std::string, std::string >			_DataBase;
-		std::map< std::string, std::string >::iterator	_it;
-		std::string										_key;
-
 	public:
 		BitcoinExchange( void );
 		BitcoinExchange( const BitcoinExchange& src );
@@ -46,6 +40,14 @@ class BitcoinExchange
 		void	valid_value( std::string& value);
 
 		float	get_value_DataBase( std::string& key);
+
+		BitcoinExchange&	operator=( const BitcoinExchange& rhs );
+
+	private:
+		std::ifstream									_input;
+		std::map< std::string, std::string >			_DataBase;
+		std::map< std::string, std::string >::iterator	_it;
+		std::string										_key;
 
 
 };
