@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:24 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 16:17:15 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:57:02 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <sys/time.h>
+#include <algorithm>
 
 
 class PmergeMe
@@ -29,8 +30,9 @@ class PmergeMe
 
 		void	merge_sort( void );
 
-		void	add_number( char *argv[] );
-		int		size( void ) const;
+		void				add_number( char *argv[] );
+		int					size( void ) const;
+		std::vector<int>	get_vector( void ) const;
 
 		void	orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std::vector<int>& endArray );
 		void	sort( std::vector<int>& endArray);

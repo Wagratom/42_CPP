@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:25 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 16:23:47 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:36:11 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,24 @@ double	get_time_order(PmergeMe& obj)
 	return ((end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec));
 }
 
-void	print_time(double time, int size)
+void	print_my_time(double time, int size)
 {
 	std::cout << "Time to process a range of " << size << " elements with std::vector : ";
+	std::cout << std::fixed <<  std::setprecision(5) << time << " us" << std::endl;
+}
+
+void	print_vector_time(const PmergeMe& obj)
+{
+	struct				timeval	start, end;
+	std::vector<int>	tmp(obj.get_vector());
+	double				time;
+
+	gettimeofday(&start, NULL);
+	std::sort(tmp.begin(), tmp.end());
+	gettimeofday(&end, NULL);
+
+	time = (end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec);
+	std::cout << "Time to process a range of " << tmp.size() << " elements with std::vector : ";
 	std::cout << std::fixed <<  std::setprecision(5) << time << " us" << std::endl;
 }
 
@@ -45,7 +60,9 @@ void	sort_array(char *argv[])
 		std::cout << "Before: " << PmergeMe << std::endl;
 		time = get_time_order(PmergeMe);
 		std::cout << "After:  " << PmergeMe << std::endl;
-		print_time(time, PmergeMe.size());
+		print_my_time(time, PmergeMe.size());
+		print_vector_time(PmergeMe);
+
 	} catch (std::invalid_argument &e) {
 		std::cerr << e.what() << std::endl;
 	}

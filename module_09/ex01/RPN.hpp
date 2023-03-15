@@ -37,9 +37,9 @@ class RPN : public std::stack<int>
 		void		is_valid_char( char c, bool is_spaces);
 		int			is_operator( char c);
 
-		void		check_get_numbers( int& value1, int& value2 );
+		void		get_numbers( int& value1, int& value2 );
 		int			result_rpn( void );
-		bool		resolve_operation(char op);
+		void		resolve_operation(char op);
 
 		RPN&	operator=( const RPN& rhs );
 
@@ -47,7 +47,6 @@ class RPN : public std::stack<int>
 		std::string		_expression;
 		std::stack<int>	_stack;
 		t_operators*	_operators;
-		int				result;
 };
 
 

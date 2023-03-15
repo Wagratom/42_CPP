@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	rpn
+NAME		=	RPN
 
 SOURCES		=	main.cpp RPN.cpp  check_expression.cpp
 

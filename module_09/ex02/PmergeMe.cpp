@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:45 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 16:25:25 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:57:19 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,10 @@ void	PmergeMe::merge_sort( void )
 
 int PmergeMe::size( void ) const {
 	return (_vector.size());
+}
+
+std::vector<int> PmergeMe::get_vector( void ) const {
+	return (_vector);
 }
 
 int&	PmergeMe::operator[](unsigned int index)

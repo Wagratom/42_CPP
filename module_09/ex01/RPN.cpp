@@ -58,24 +58,10 @@ RPN::RPN( std::string expression ):
 		_stack(),
 		_operators(create_structure())
 {
-	try{
-		check_expression(_expression);
-	} catch (std::invalid_argument& e) {
-		std::cout << e.what() << std::endl;
-	}
+	check_expression(_expression);
 }
 
-RPN::RPN( const RPN& src ) :
-	std::stack<int>(src),
-	_expression(src._expression),
-	 _stack(src._stack)
-{
-	try{
-		check_expression(_expression);
-	} catch (std::invalid_argument& e) {
-		std::cout << e.what() << std::endl;
-	}
-
+RPN::RPN( const RPN& src ) : std::stack<int>(src){
 	*this = src;
 }
 
@@ -86,15 +72,15 @@ RPN::~RPN( void ) {
 /*                             Functions members                              */
 /******************************************************************************/
 
-void	RPN::check_get_numbers( int& value1, int& value2)
+void	RPN::get_numbers( int& value1, int& value2)
 {
 	if (_stack.size() < 2)
 		throw	std::range_error("trying to perform an invalid operation");
-	value1 = _stack.top(); _stack.pop();
 	value2 = _stack.top(); _stack.pop();
+	value1 = _stack.top(); _stack.pop();
 }
 
-bool	RPN::resolve_operation(char op)
+void	RPN::resolve_operation(char op)
 {
 	int	value1, value2;
 
@@ -102,18 +88,15 @@ bool	RPN::resolve_operation(char op)
 	{
 		if (op == _operators[i].op)
 		{
-			try{
-				check_get_numbers(value1, value2);
-				_stack.push(_operators[i].f(value1, value2));
-				return (true);
-			} catch(std::exception& e) {
-				std::cout << e.what() << std::endl;
-				return (false);
-			}
+			get_numbers(value1, value2);
+			_stack.push(_operators[i].f(value1, value2));
+			return ;
 		}
 	}
-	std::cout << "Invalid operator \"" << op <<"\"" << std::endl;
-	return (false);
+	std::string err("invalid operator ");
+	err += std::string(1, op);
+	err += " found";
+	throw std::invalid_argument(err);
 }
 
 int	RPN::result_rpn( void )
@@ -124,16 +107,16 @@ int	RPN::result_rpn( void )
 			i++;
 		if (isdigit(_expression[i]))
 			_stack.push(_expression[i] - '0');
-		else if (resolve_operation(_expression[i]) == false)
-			return (-1);
+		else
+			resolve_operation(_expression[i]);
 	}
-	if (_stack.size() == 1)
-		return (_stack.top());
-	std::cout << "Invalid expression" << std::endl;
-	return (-1);
+	if (_stack.size() != 1)
+		throw std::runtime_error("Invalid expression: The stack does not contain exactly one value at the end of the evaluation.");
+	return (_stack.top());
 }
 
 RPN& RPN::operator=( const RPN& rhs ) {
 	this->_expression = rhs._expression;
+	this->_stack = rhs._stack;
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 11:19:26 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/10 19:18:04 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:47:26 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	RPN::is_operator( char c )
 void	RPN::is_valid_char( char c, bool is_spaces)
 {
 	if (is_spaces && c != ' ')
-		throw std::invalid_argument("invalid value expected to space");
+		throw std::invalid_argument("Error");
 	if (is_spaces)
 		return ;
 	if (!isdigit(c) && is_operator(c) == -1)
-		throw std::invalid_argument("Value in expression is not a digit");
+		throw std::invalid_argument("Error");
 }
 
 bool	RPN::check_expression( std::string expression )
