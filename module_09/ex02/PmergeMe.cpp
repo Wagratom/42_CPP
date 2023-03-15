@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:45 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 14:57:19 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:30:52 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ PmergeMe::PmergeMe( void ) : _vector(), _index(0){
 }
 
 PmergeMe::PmergeMe( char *argv[] ) : _vector(), _index(0){
-	add_number(argv);
+	add_number_in_vectors(argv);
 }
 
 PmergeMe::PmergeMe( const PmergeMe& obj ) {
@@ -68,7 +68,7 @@ std::string	get_number_str(std::string range)
 	return (range.substr(0, range.size()));
 }
 
-void	PmergeMe::add_number( char *argv[] )
+void	PmergeMe::add_number_in_vectors( char *argv[] )
 {
 	std::string	number_str;
 	int			number;
@@ -78,14 +78,16 @@ void	PmergeMe::add_number( char *argv[] )
 		number_str = get_number_str(argv[i]);
 		number = convert_in_integer(number_str);
 		_vector.push_back(number);
+		_deque.push_back(number);
 	}
 }
 
 /******************************************************************************/
-/*                               Merge Sort                                   */
+/*                               Merge Sort Vector                            */
 /******************************************************************************/
 
-void	fill_arrays( std::vector<int>& aux1, std::vector<int>& aux2, std::vector<int> vector )
+template<typename T>
+void	fill_arrays( T& aux1, T& aux2, T vector )
 {
 	int	index = 0;
 
@@ -101,7 +103,8 @@ void	fill_arrays( std::vector<int>& aux1, std::vector<int>& aux2, std::vector<in
 	}
 }
 
-void	PmergeMe::numbers_left(std::vector<int>& endArray, std::vector<int> array, int index)
+template<typename T>
+void	PmergeMe::get_numbers_left(T& endArray, T array, int index)
 {
 	if (index >= (int)array.size())
 		return ;
@@ -109,7 +112,8 @@ void	PmergeMe::numbers_left(std::vector<int>& endArray, std::vector<int> array, 
 		endArray[_index++] = array[i];
 }
 
-void	PmergeMe::orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std::vector<int>& endArray )
+template<typename T>
+void	PmergeMe::orde_endArray( T aux1, T aux2, T& endArray )
 {
 	int	index1 = 0;
 	int index2 = 0;
@@ -129,16 +133,17 @@ void	PmergeMe::orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std:
 		}
 		_index++;
 	}
-	numbers_left(endArray, aux1, index1);
-	numbers_left(endArray, aux2, index2);
+	get_numbers_left(endArray, aux1, index1);
+	get_numbers_left(endArray, aux2, index2);
 }
 
-void	PmergeMe::sort( std::vector<int>& endArray)
+template<typename T>
+void	PmergeMe::sort( T& endArray)
 {
 	if (endArray.size() == 1)
 		return ;
-	std::vector<int> aux1;
-	std::vector<int> aux2;
+	T aux1;
+	T aux2;
 
 	fill_arrays(aux1, aux2, endArray);
 	sort(aux1);
@@ -146,19 +151,52 @@ void	PmergeMe::sort( std::vector<int>& endArray)
 	orde_endArray(aux1, aux2, endArray);
 }
 
-void	PmergeMe::merge_sort( void )
+void	PmergeMe::merge_sort_vector( void )
 {
 	sort(_vector);
 }
 
-int PmergeMe::size( void ) const {
+void	PmergeMe::merge_sort_deque( void )
+{
+	sort(_deque);
+}
+
+/******************************************************************************/
+/*                               Auxiliaries                                  */
+/******************************************************************************/
+
+void	PmergeMe::print_vector( void ) const
+{
+	for (int i = 0; i < (int)_vector.size(); i++)
+		std::cout << _vector[i] << " ";
+	std::cout << std::endl;
+}
+
+void	PmergeMe::print_deque( void ) const
+{
+	for (int i = 0; i < (int)_deque.size(); i++)
+		std::cout << _deque[i] << " ";
+	std::cout << std::endl;
+}
+
+int PmergeMe::size_vector( void ) const {
 	return (_vector.size());
+}
+
+int PmergeMe::size_deque( void ) const {
+	return (_deque.size());
 }
 
 std::vector<int> PmergeMe::get_vector( void ) const {
 	return (_vector);
 }
+std::deque<int> PmergeMe::get_deque( void ) const {
+	return (_deque);
+}
 
+/******************************************************************************/
+/*                              Operators                                     */
+/******************************************************************************/
 int&	PmergeMe::operator[](unsigned int index)
 {
 	if (index >= _vector.size())
@@ -171,31 +209,4 @@ PmergeMe&	PmergeMe::operator=(const PmergeMe& obj)
 	_vector = std::vector<int>(obj._vector);
 	_index = obj._index;
 	return (*this);
-}
-
-std::ostream&	operator<<(std::ostream& os, PmergeMe& obj)
-{
-	for (int i = 0; i < (int)obj.size(); i++)
-		os << obj[i] << " ";
-	return (os);
-}
-/******************************************************************************/
-/*                           functions auxiliares                             */
-/******************************************************************************/
-
-void	visualize_aux( std::vector<int> vector1, std::vector<int> vector2)
-{
-	for (int i = 0; i < (int)vector1.size(); i++)
-		std::cout << "Vector1 [" << i << "] = " << vector1[i] << std::endl;
-	std::cout << std::endl;
-	for (int i = 0; i < (int)vector2.size(); i++)
-		std::cout << "Vector2 [" << i << "] = " << vector2[i] << std::endl;
-	std::cout << std::endl;
-}
-
-void	visualize_endArray(std::vector<int> endArray)
-{
-	for (int i = 0; i < (int)endArray.size(); i++)
-		std::cout << "endArray [" << i << "] = " << endArray[i] << std::endl;
-	std::cout << std::endl;
 }

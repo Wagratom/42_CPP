@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:24 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 14:57:02 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:29:43 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 #include <iostream>
 #include <vector>
-#include <cstdlib>
+#include <deque>
 #include <iomanip>
 #include <sys/time.h>
 #include <algorithm>
+
 
 
 class PmergeMe
@@ -28,28 +29,38 @@ class PmergeMe
 		PmergeMe( const PmergeMe& obj );
 		~PmergeMe( void );
 
-		void	merge_sort( void );
+		void	add_number_in_vectors( char *argv[] );
 
-		void				add_number( char *argv[] );
-		int					size( void ) const;
+		void	merge_sort_vector( void );
+		void	merge_sort_deque( void );
+
+
+		template<typename T>
+		void				orde_endArray( T aux1, T aux2, T& endArray );
+
+		template<typename T>
+		void				sort( T& endArray);
+
+		template<typename T>
+		void				get_numbers_left(T& endArray, T array, int index);
+
+		void	print_vector( void ) const;
+		void	print_deque( void ) const;
+
 		std::vector<int>	get_vector( void ) const;
+		std::deque<int>		get_deque( void ) const;
 
-		void	orde_endArray( std::vector<int> aux1, std::vector<int> aux2, std::vector<int>& endArray );
-		void	sort( std::vector<int>& endArray);
+		int					size_vector( void ) const;
+		int					size_deque( void ) const;
 
-		void	numbers_left(std::vector<int>& endArray, std::vector<int> array, int index);
-
-		int&		operator[](unsigned int index);
-		PmergeMe&	operator=(const PmergeMe& obj);
+		int&				operator[](unsigned int index);
+		PmergeMe&			operator=(const PmergeMe& obj);
 
 	private:
 		std::vector<int>	_vector;
+		std::deque<int>		_deque;
 		int					_index;
 };
-
-std::ostream&	operator<<(std::ostream& out, PmergeMe& obj);
-void	visualize_aux( std::vector<int> vector1, std::vector<int> vector2);
-void	visualize_endArray(std::vector<int> endArray);
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
