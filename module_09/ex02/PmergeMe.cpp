@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:45 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 17:30:52 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:43:56 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,16 +197,11 @@ std::deque<int> PmergeMe::get_deque( void ) const {
 /******************************************************************************/
 /*                              Operators                                     */
 /******************************************************************************/
-int&	PmergeMe::operator[](unsigned int index)
-{
-	if (index >= _vector.size())
-		throw std::out_of_range("Index out of range");
-	return (_vector[index]);
-}
 
 PmergeMe&	PmergeMe::operator=(const PmergeMe& obj)
 {
-	_vector = std::vector<int>(obj._vector);
-	_index = obj._index;
+	this->_vector = obj.get_vector();
+	this->_deque = obj.get_deque();
+	this->_index = obj._index;
 	return (*this);
 }
