@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:55:50 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 14:38:28 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:55:02 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,16 @@ float	BitcoinExchange::get_value_DataBase( std::string& key)
 {
 	std::string value;
 
-	_it = _DataBase.lower_bound(key);
-	if (_it == _DataBase.end())
-		_it--;
-	value = _it->second;
+	_it = _DataBase.find(key);
+	if (_it != _DataBase.end())
+		value = _it->second;
+	else
+	{
+		_it = _DataBase.lower_bound(key);
+		if (_it != _DataBase.begin())
+			_it--;
+		value = _it->second;
+	}
 	return (std::atof(value.c_str()));
 }
 
@@ -116,7 +122,7 @@ void	BitcoinExchange::valid_value( std::string& value)
 		if (value[i] == '.' && point++ == 0)
 			continue ;
 		if (value[i] == '-' && i == 0)
-			throw	std::invalid_argument("Error: not a positive number: ");
+			throw	std::invalid_argument("Error: not a positive number. ");
 		if (!isdigit(value[i]))
 			throw	std::invalid_argument("Error: Value is not valid: ");
 	}
@@ -162,9 +168,8 @@ void	BitcoinExchange::handle_title()
 	std::getline(_input, line);
 	if (line == "date | value")
 		return ;
-	get_valid_key(line);
-	print_value(line);
-
+	if (get_valid_key(line))
+		print_value(line);
 }
 
 void	BitcoinExchange::print_formated(char *name)
