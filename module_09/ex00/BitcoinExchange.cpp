@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:55:50 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/14 17:11:11 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/14 22:55:42 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ BitcoinExchange::BitcoinExchange( void ) {
 
 BitcoinExchange::~BitcoinExchange( void ) {
 }
+
 bool	BitcoinExchange::open_file( char* name )
 {
 	_input.open(name);
@@ -43,27 +44,5 @@ bool	BitcoinExchange::create_map( void )
 		_DataBase[key] = value;
 	}
 	_input.close();
-	return (true);
-}
-
-// 2011-01-03 | 3
-
-bool	print_formated( std::string line )
-{
-	std::string data = line.substr(0, (line.find('|') - 1));
-	std::cout << "data |" << data << "|" << std::endl;
-	return (true);
-}
-
-bool	BitcoinExchange::open_input( char* filename)
-{
-	std::string		line;
-
-	if (!open_file(filename))
-		return (false);
-	while (std::getline(_input, line))
-	{
-		print_formated(line);
-	}
 	return (true);
 }
