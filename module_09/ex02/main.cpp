@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:25 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 17:41:09 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:12:17 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_arguments(int argc, char **argv)
 {
-	if (argc <= 2)
+	if (argc <= 1)
 		exit(EXIT_SUCCESS);
 	if (!argv || *argv[1] == 0)
 		exit (EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:45:15 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 14:58:43 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:28:06 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ void	execute_program(char *argv)
 	std::cout << "end read file " << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
 }
+
 int	main( int argc, char *argv[])
 {
-	argc = argc;
-	argv = argv;
-
 	if (argc <= 1)
 	{
 		std::cout << "Error: could not open file." << std::endl;

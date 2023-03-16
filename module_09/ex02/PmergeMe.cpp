@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:08:45 by wwallas-          #+#    #+#             */
-/*   Updated: 2023/03/15 17:43:56 by wwallas-         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:17:16 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,13 @@ int	convert_in_integer( std::string number)
 	return (result);
 }
 
-std::string	get_number_str(std::string range)
+void	PmergeMe::add_number_in_vectors( char *numbers[] )
 {
-	int			space;
-
-	space = range.find(' ');
-	if (space != (int)std::string::npos)
-		return (range.substr(0, space));
-	return (range.substr(0, range.size()));
-}
-
-void	PmergeMe::add_number_in_vectors( char *argv[] )
-{
-	std::string	number_str;
 	int			number;
 
-	for (int i = 0; argv[i]; i++)
+	for (int i = 0; numbers[i]; i++)
 	{
-		number_str = get_number_str(argv[i]);
-		number = convert_in_integer(number_str);
+		number = convert_in_integer(numbers[i]);
 		_vector.push_back(number);
 		_deque.push_back(number);
 	}
