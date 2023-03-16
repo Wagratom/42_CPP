@@ -61,7 +61,7 @@ RPN::RPN( std::string expression ):
 	check_expression(_expression);
 }
 
-RPN::RPN( const RPN& src ) : std::stack<int>(src){
+RPN::RPN( const RPN& src ) : std::stack<int>(src), _operators(create_structure()) {
 	*this = src;
 }
 
